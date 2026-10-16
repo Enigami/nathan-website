@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     index.html - the home page.
+
+     Markup only. Style lives in the engine's engine.css and this site's
+     site.css, and behavior lives in the engine's script trunks, loaded
+     in a fixed order from the head.
+
+     Copy the editor can change is fenced by [edit:slug] comment
+     pairs, each wrapping exactly one element. Do not nest a pair
+     more than one level deep, and do not put two elements inside
+     one pair: the marker checker enforces both rules.
+
+     Sections:
+       1. HEAD AND META      5. WORK
+       2. CHROME             6. LATEST FROM THE BLOG
+       3. HERO               7. FOOTER
+       4. WHAT I DO
+     ============================================================ -->
+
+<html lang="en">
+<head>
+  <!-- ============================================================
+       1. HEAD AND META
+       ------------------------------------------------------------
+       This page's own title, canonical and social cards. Every page
+       carries its own; they are not shared chrome.
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Nathaniel E. Harris · Systems software engineer</title>
+  <meta name="description" content="Nathaniel E. Harris is a systems software engineer. He builds reliable backend services and data pipelines, and works down to engines, machine code and legacy hardware." />
+  <meta name="author" content="Nathaniel E. Harris" />
+  <meta name="theme-color" content="#16181d" />
+  <link rel="canonical" href="https://USERNAME.github.io/nathan-portfolio/" />
+  <link rel="alternate" type="application/atom+xml" title="Nathaniel E. Harris - Blog" href="feed.xml" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+  <!-- Open Graph / social share -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nathaniel E. Harris" />
+  <meta property="og:title" content="Nathaniel E. Harris · Systems software engineer" />
+  <meta property="og:description" content="Nathaniel E. Harris is a systems software engineer. He builds reliable backend services and data pipelines, and works down to engines, machine code and legacy hardware." />
+  <meta property="og:url" content="https://USERNAME.github.io/nathan-portfolio/" />
+  <meta property="og:image" content="https://USERNAME.github.io/nathan-portfolio/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nathaniel E. Harris, systems software engineer." />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nathaniel E. Harris · Systems software engineer" />
+  <meta name="twitter:description" content="Nathaniel E. Harris is a systems software engineer. He builds reliable backend services and data pipelines, and works down to engines, machine code and legacy hardware." />
+  <meta name="twitter:image" content="https://USERNAME.github.io/nathan-portfolio/og-image.png" />
+
+  <!-- Inter via Google Fonts (with a robust system fallback in CSS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet" />
+
+  <!-- The engine's style first and this site's second, so this site's
+       tokens set the theme. -->
+  <link rel="stylesheet" href="libraries/harrisxrwebengine/engine.css" />
+  <link rel="stylesheet" href="site.css" />
+
+  <!-- The site's script, in a fixed order. defer keeps document order and runs
+       each file after parsing, so every trunk sees the whole page.
+       release.js names the engine release and creates window.AMH, the one
+       namespace the trunks share, and site.config.js holds this site's
+       facts. Both come first. The trunks are the engine's, in
+       libraries/harrisxrwebengine/.
+       imagesengine.js is the image engine. Every image the site takes in
+       goes through it, so every page loads it, after work.js and before
+       the trunks that call it.
+       markdown.js is here for the deep dive, which is written in Markdown
+       and carries its source. It comes before tool.js, which asks it to
+       render. -->
+  <script defer src="libraries/harrisxrwebengine/release.js"></script>
+  <script defer src="site.config.js"></script>
+  <script defer src="libraries/harrisxrwebengine/site.js"></script>
+  <script defer src="libraries/harrisxrwebengine/work.js"></script>
+  <script defer src="libraries/harrisxrwebengine/imagesengine.js"></script>
+  <script defer src="libraries/harrisxrwebengine/markdown.js"></script>
+  <script defer src="libraries/harrisxrwebengine/tool.js"></script>
+
+  <!-- Graceful degradation: without JS the reveal animations never fire, so
+       force all content visible.
+       These rules stay inline. A <noscript> block applies only when scripting
+       is off, and a linked stylesheet cannot carry that condition. -->
+  <noscript>
+    <style>
+      .reveal, .reveal-hero > *, .hero .wrap > .eyebrow { opacity: 1 !important; transform: none !important; }
+      .gallery:not(.is-ready) > img:first-of-type { display: block !important; }
+    </style>
+  </noscript>
+</head>
+
+<body>
+  <!-- ============================================================
+       2. CHROME
+       ------------------------------------------------------------
+       The scroll progress bar, the header, and the nav that doubles
+       as the mobile drawer. site.js owns their state.
+
+       The header is shared chrome: byte-identical on every managed
+       page, and held to that by the suite. Its copy regions are
+       shared too: an edit to one is written to every page that has
+       it, in the same publish.
+       ============================================================ -->
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="site-header" id="header">
+    <a class="brand" href="index.html#top" aria-label="Nathaniel Harris, home">
+      <span class="mark" aria-hidden="true">NH</span>
+      <span class="brand__name">
+        <!--[edit:brand-title]-->
+        <span class="brand__title full">NATHANIEL HARRIS</span>
+        <!--[/edit:brand-title]-->
+        <!--[edit:brand-sub]-->
+        <span class="brand__sub">Systems software engineer</span>
+        <!--[/edit:brand-sub]-->
+      </span>
+    </a>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- A nav link names the page it points into, so the same bytes work on
+         every page. site.js treats a link naming THIS page as an in-page
+         anchor, and marks the item whose href is this page as current.
+         "#contact" stays bare: every page has its own contact section. -->
+    <nav class="nav" id="nav" aria-label="Primary">
+      <div class="nav__links">
+        <!--[edit:nav-work]-->
+        <a href="index.html#work">Work</a>
+        <!--[/edit:nav-work]-->
+        <!--[edit:nav-gallery]-->
+        <a href="gallery.html">Gallery</a>
+        <!--[/edit:nav-gallery]-->
+        <!--[edit:nav-blog]-->
+        <a href="blog.html">Blog</a>
+        <!--[/edit:nav-blog]-->
+        <!--[edit:nav-about]-->
+        <a href="about.html">About</a>
+        <!--[/edit:nav-about]-->
+        <!--[edit:nav-contact]-->
+        <a href="#contact">Contact</a>
+        <!--[/edit:nav-contact]-->
+      </div>
+    </nav>
+  </header>
+
+  <!-- dim scrim behind the mobile nav drawer -->
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+  <main id="top">
+
+    <!-- ============================================================
+         3. HERO
+         ------------------------------------------------------------
+         The opening statement, the portrait, and the calls to see the
+         work and to get in touch. The halo behind the portrait is
+         decoration.
+         ============================================================ -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero__stage" aria-hidden="true">
+        <span class="hero__halo"></span>
+      </div>
+
+      <!-- The portrait sits outside .wrap so it can stand on the hero's
+           floor. site.js watches .hero__portrait: once enough of it has
+           scrolled under the header, the header takes its scrolled look. -->
+      <img class="hero__portrait" src="img/nathaniel-hero.webp" width="920" height="1123"
+           alt="Portrait of Nathaniel E. Harris." fetchpriority="high" decoding="async" />
+
+      <div class="wrap">
+        <!--[edit:hero-eyebrow]-->
+        <span class="eyebrow">Nathaniel E. Harris</span>
+        <!--[/edit:hero-eyebrow]-->
+        <div class="hero__inner reveal-hero">
+          <!--[edit:hero-h1]-->
+          <h1>Reliable software for <span class="hl">complex systems</span>.</h1>
+          <!--[/edit:hero-h1]-->
+          <!--[edit:hero-sub]-->
+          <p class="hero__sub">I build backend services and data pipelines, and I work below them too: custom engines, machine code and legacy hardware.</p>
+          <!--[/edit:hero-sub]-->
+          <!--[edit:hero-note]-->
+          <p class="hero__note">Now at Space Interactions, on the services and pipelines behind satellite and orbital data.</p>
+          <!--[/edit:hero-note]-->
+          <div class="hero__cta">
+            <!--[edit:hero-cta-work]-->
+            <a class="btn" href="#work">See my work <span class="arrow" aria-hidden="true">↓</span></a>
+            <!--[/edit:hero-cta-work]-->
+            <!--[edit:hero-cta-contact]-->
+            <a class="btn btn--ghost" href="#contact">Get in touch</a>
+            <!--[/edit:hero-cta-contact]-->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. WHAT I DO
+         ------------------------------------------------------------
+         The three kinds of work, side by side, and the line under
+         them that names where the three meet. Copy only: the project
+         cards in WORK are the evidence for each column.
+         ============================================================ -->
+    <section class="focus" id="focus" aria-label="What I do">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <!--[edit:focus-eyebrow]-->
+          <span class="eyebrow">What I do</span>
+          <!--[/edit:focus-eyebrow]-->
+        </div>
+
+        <div class="focus__grid">
+          <article class="focus__col reveal">
+            <!--[edit:focus-backend-title]-->
+            <h3 class="focus__title">Backend and data systems</h3>
+            <!--[/edit:focus-backend-title]-->
+            <!--[edit:focus-backend-text]-->
+            <p class="focus__text">Services and pipelines that take data in, validate it and keep it, with typed contracts between the parts.</p>
+            <!--[/edit:focus-backend-text]-->
+            <!--[edit:focus-backend-chips]-->
+            <div class="chips"><span class="chip">Rust</span><span class="chip">C#</span><span class="chip">TypeScript</span><span class="chip">MongoDB</span></div>
+            <!--[/edit:focus-backend-chips]-->
+          </article>
+
+          <article class="focus__col reveal d1">
+            <!--[edit:focus-ops-title]-->
+            <h3 class="focus__title">Operational software</h3>
+            <!--[/edit:focus-ops-title]-->
+            <!--[edit:focus-ops-text]-->
+            <p class="focus__text">Software for work that runs on real rules: orbital data, field-service scheduling and mapping, and SMS compliance.</p>
+            <!--[/edit:focus-ops-text]-->
+            <!--[edit:focus-ops-chips]-->
+            <div class="chips"><span class="chip">Orbital data</span><span class="chip">Logistics</span><span class="chip">Scheduling</span><span class="chip">Compliance</span></div>
+            <!--[/edit:focus-ops-chips]-->
+          </article>
+
+          <article class="focus__col reveal d2">
+            <!--[edit:focus-internals-title]-->
+            <h3 class="focus__title">Systems internals and legacy hardware</h3>
+            <!--[/edit:focus-internals-title]-->
+            <!--[edit:focus-internals-text]-->
+            <p class="focus__text">Custom engines, firmware, reverse engineering and machine code, down to 6502 and x86 assembly.</p>
+            <!--[/edit:focus-internals-text]-->
+            <!--[edit:focus-internals-chips]-->
+            <div class="chips"><span class="chip">C++</span><span class="chip">Firmware</span><span class="chip">6502</span><span class="chip">x86</span></div>
+            <!--[/edit:focus-internals-chips]-->
+          </article>
+        </div>
+
+        <!--[edit:focus-center]-->
+        <p class="focus__center reveal">Where the three meet is the work I like best: <b>understanding an unfamiliar system, keeping it reliable, and connecting it to modern software.</b></p>
+        <!--[/edit:focus-center]-->
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. WORK
+         ------------------------------------------------------------
+         One card for each project: a carousel, the copy, and the
+         Role and Stack specs. work.js builds the carousels, and the
+         editor treats each gallery as an image region.
+
+         The cards are the engine's project list, [list:projects]:
+         the editor's project form, New project and Duplicate work on
+         them, and the form can add a deep dive to a card. The images
+         are placeholders from img/seed/ until a photo replaces them.
+         ============================================================ -->
+    <section class="work" id="work" aria-label="Work">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <!--[edit:work-eyebrow]-->
+          <span class="eyebrow">Work</span>
+          <!--[/edit:work-eyebrow]-->
+          <!--[edit:work-h2]-->
+          <h2>Selected projects.</h2>
+          <!--[/edit:work-h2]-->
+          <!--[edit:work-intro]-->
+          <p>Backend platforms, operational software and systems internals, from a space-domain awareness platform to 6502 and x86 assembly.</p>
+          <!--[/edit:work-intro]-->
+        </div>
+
+        <!--[list:projects]-->
+        <!--[item:forerunner]-->
+        <!-- ╔═══════════════════════════════════════════════════════════════╗
+             ║  PROJECT · Forerunner                                         ║
+             ╚═══════════════════════════════════════════════════════════════╝ -->
+        <article class="project">
+          <div class="project__media reveal">
+
+            <!-- GALLERY · one <img> per photo (src, alt, optional data-caption).
+                 Add or remove a photo = add or remove one <img> line below. -->
+            <!--[edit:forerunner-gallery]-->
+            <div class="gallery">
+              <img src="img/work/forerunner-3-1kpwjg.jpg" loading="lazy"
+                   srcset="img/work/forerunner-3-1kpwjg_sd.webp 480w, img/work/forerunner-3-1kpwjg.jpg 1604w"
+                   sizes="(max-width: 880px) 84vw, (max-width: 1180px) 48vw, 562px"
+                   width="1604"
+                   height="800"
+                   alt="forerunner 3"
+                   data-sd="img/work/forerunner-3-1kpwjg_sd.webp"
+                   data-original="img/work/forerunner-3-1kpwjg_original.png"
+                   data-original-size="1604x800"
+                   data-original-bytes="1939498" />
+            </div>
+            <!--[/edit:forerunner-gallery]-->
+
+          </div>
+          <div class="project__body reveal d1">
+
+            <!-- NUMBER · automatic (01, 02…) · leave this span empty -->
+            <span class="project__index"></span>
+
+            <!--[edit:forerunner-title]-->
+            <h3 class="project__title">Forerunner</h3>
+            <!--[/edit:forerunner-title]-->
+
+            <!--[edit:forerunner-meta]-->
+            <p class="project__meta">Space Interactions · Since 2024</p>
+            <!--[/edit:forerunner-meta]-->
+
+            <!--[edit:forerunner-lead]-->
+            <p class="project__lead">A space-domain awareness platform. I build the services and pipelines that bring in satellite and orbital data, and the views that show it.</p>
+            <!--[/edit:forerunner-lead]-->
+
+            <!--[edit:forerunner-desc]-->
+            <p class="project__desc">I built Rust and MongoDB back-end services for the platform's data operations. I also develop and extend the TypeScript and Electron frontend that visualizes the data, and I design the 3D models that the orbital views are made of.</p>
+            <!--[/edit:forerunner-desc]-->
+
+            <!-- OPTIONAL · stats · empty = auto-hidden -->
+            <!--[edit:forerunner-stats]-->
+            <div class="stats"></div>
+            <!--[/edit:forerunner-stats]-->
+
+            <!-- OPTIONAL · highlights · empty = auto-hidden -->
+            <!--[edit:forerunner-highlights]-->
+            <ul class="highlights">
+              <li>Automated the retrieval, validation and archival of TLE (two-line element) orbital data.</li>
+              <li>Custom HLSL shaders that made the orbital views render faster.</li>
+            </ul>
+            <!--[/edit:forerunner-highlights]-->
+
+            <!-- SPECS · the engine's form names these two Role and Stack -->
+            <div class="specs">
+              <!--[edit:forerunner-spec-role]-->
+              <div class="spec"><dt>Role</dt><dd>Data Engineer, Senior Programmer</dd></div>
+              <!--[/edit:forerunner-spec-role]-->
+              <!--[edit:forerunner-spec-stack]-->
+              <div class="spec"><dt>Stack</dt><dd><span class="chips"><span class="chip">TypeScript</span><span class="chip">Electron</span><span class="chip">Rust</span><span class="chip">MongoDB</span><span class="chip">HLSL</span></span></dd></div>
+              <!--[/edit:forerunner-spec-stack]-->
+            </div>
+
+          </div>
+        </article>
+        <!-- ╚═══════════════ END · Forerunner ═══════════════╝ -->
+        <!--[/item:forerunner]-->
+
+        <!--[item:snescd]-->
+        <!-- ╔═══════════════════════════════════════════════════════════════╗
+             ║  PROJECT · Super NES CD-ROM                                   ║
+             ╚═══════════════════════════════════════════════════════════════╝ -->
+        <article class="project">
+          <div class="project__media reveal">
+
+            <!-- GALLERY · one <img> per photo (src, alt, optional data-caption).
+                 Add or remove a photo = add or remove one <img> line below. -->
+            <!--[edit:snescd-gallery]-->
+            <div class="gallery">
+              <img src="img/seed/stage-01.jpg" loading="lazy"
+                   alt="A placeholder for a Super NES CD-ROM image."
+                   data-caption="Super NES CD-ROM (placeholder image)" />
+            </div>
+            <!--[/edit:snescd-gallery]-->
+
+          </div>
+          <div class="project__body reveal d1">
+
+            <!-- NUMBER · automatic (01, 02…) · leave this span empty -->
+            <span class="project__index"></span>
+
+            <!--[edit:snescd-title]-->
+            <h3 class="project__title">Super NES CD-ROM</h3>
+            <!--[/edit:snescd-title]-->
+
+            <!--[edit:snescd-meta]-->
+            <p class="project__meta">SFX-100 prototype · In progress</p>
+            <!--[/edit:snescd-meta]-->
+
+            <!--[edit:snescd-lead]-->
+            <p class="project__lead">A clean-room BIOS, tools and software for the <span class="nowrap">SFX-100</span>, the SNES CD prototype also known as the "Nintendo PlayStation".</p>
+            <!--[/edit:snescd-lead]-->
+
+            <!--[edit:snescd-desc]-->
+            <p class="project__desc">I am writing the BIOS from scratch. My reference is <a href="https://problemkaputt.de/fullsnes.htm" target="_blank" rel="noopener">Martin Korth's documentation</a>, which covers most of the SNES hardware and its peripherals. The BIOS is designed to work with the prototype's own CD-ROM drive or with a modern one, so a recreation does not need one specific out-of-production Sony drive. Its design also brings in the SuperFX chip that the prototype planned for but did not yet have.</p>
+            <!--[/edit:snescd-desc]-->
+
+            <!-- OPTIONAL · stats · empty = auto-hidden -->
+            <!--[edit:snescd-stats]-->
+            <div class="stats"></div>
+            <!--[/edit:snescd-stats]-->
+
+            <!-- OPTIONAL · highlights · empty = auto-hidden -->
+            <!--[edit:snescd-highlights]-->
+            <ul class="highlights">
+              <li>Optional SuperFX GSU acceleration: the same software runs on the original prototype, and uses the GSU when one is present.</li>
+              <li>One defined BIOS version, so software has one platform to build on and a small community does not split across forks.</li>
+              <li>Early tests pass in the <span class="nowrap">SFX-100</span> version of <a href="https://problemkaputt.de/sns.htm" target="_blank" rel="noopener">no$sns</a>, Martin Korth's emulator. Tests on the physical prototype come next, and units are scarce.</li>
+            </ul>
+            <!--[/edit:snescd-highlights]-->
+
+            <!-- SPECS · the engine's form names these two Role and Stack -->
+            <div class="specs">
+              <!--[edit:snescd-spec-role]-->
+              <div class="spec"><dt>Role</dt><dd>Developer</dd></div>
+              <!--[/edit:snescd-spec-role]-->
+              <!--[edit:snescd-spec-stack]-->
+              <div class="spec"><dt>Stack</dt><dd><span class="chips"><span class="chip">65816</span><span class="chip">SuperFX GSU</span><span class="chip">Firmware</span><span class="chip">CD-ROM</span></span></dd></div>
+              <!--[/edit:snescd-spec-stack]-->
+            </div>
+
+          </div>
+        </article>
+        <!-- ╚═══════════════ END · Super NES CD-ROM ═══════════════╝ -->
+        <!--[/item:snescd]-->
+
+        <!--[item:fieldservice]-->
+        <!-- ╔═══════════════════════════════════════════════════════════════╗
+             ║  PROJECT · Field-service platform                             ║
+             ╚═══════════════════════════════════════════════════════════════╝ -->
+        <article class="project">
+          <div class="project__media reveal">
+
+            <!-- GALLERY · one <img> per photo (src, alt, optional data-caption).
+                 Add or remove a photo = add or remove one <img> line below. -->
+            <!--[edit:fieldservice-gallery]-->
+            <div class="gallery">
+              <img src="img/seed/tiles-01.jpg" loading="lazy"
+                   alt="A placeholder for a field-service platform image."
+                   data-caption="Field-service platform (placeholder image)" />
+            </div>
+            <!--[/edit:fieldservice-gallery]-->
+
+          </div>
+          <div class="project__body reveal d1">
+
+            <!-- NUMBER · automatic (01, 02…) · leave this span empty -->
+            <span class="project__index"></span>
+
+            <!--[edit:fieldservice-title]-->
+            <h3 class="project__title">Field-service platform</h3>
+            <!--[/edit:fieldservice-title]-->
+
+            <!--[edit:fieldservice-meta]-->
+            <p class="project__meta">Phillips Lifestyles · 2018 to 2023</p>
+            <!--[/edit:fieldservice-meta]-->
+
+            <!--[edit:fieldservice-lead]-->
+            <p class="project__lead">Work orders, scheduling, job maps and dispatch, in one platform for a field-service team.</p>
+            <!--[/edit:fieldservice-lead]-->
+
+            <!--[edit:fieldservice-desc]-->
+            <p class="project__desc">As software lead I automated the data integration behind it: work-order history and scheduling, GPS maps of jobs and company vehicles, and messages between field workers and dispatchers. I also pulled point-of-sale data into Google Calendar, so the whole company scheduled from one place.</p>
+            <!--[/edit:fieldservice-desc]-->
+
+            <!-- OPTIONAL · stats · empty = auto-hidden -->
+            <!--[edit:fieldservice-stats]-->
+            <div class="stats">
+              <span class="stat"><b>~66%</b> more service revenue</span>
+              <span class="stat"><b>~$1.5M</b> in added revenue</span>
+              <span class="stat"><b>~$300K</b> a year in saved labor</span>
+            </div>
+            <!--[/edit:fieldservice-stats]-->
+
+            <!-- OPTIONAL · highlights · empty = auto-hidden -->
+            <!--[edit:fieldservice-highlights]-->
+            <ul class="highlights">
+              <li>A C# application that designs and prints retail sale signs.</li>
+              <li>Custom WordPress modules for the company website.</li>
+            </ul>
+            <!--[/edit:fieldservice-highlights]-->
+
+            <!-- SPECS · the engine's form names these two Role and Stack -->
+            <div class="specs">
+              <!--[edit:fieldservice-spec-role]-->
+              <div class="spec"><dt>Role</dt><dd>Software lead</dd></div>
+              <!--[/edit:fieldservice-spec-role]-->
+              <!--[edit:fieldservice-spec-stack]-->
+              <div class="spec"><dt>Stack</dt><dd><span class="chips"><span class="chip">C#</span><span class="chip">Google APIs</span><span class="chip">GPS</span><span class="chip">WordPress</span></span></dd></div>
+              <!--[/edit:fieldservice-spec-stack]-->
+            </div>
+
+          </div>
+        </article>
+        <!-- ╚═══════════════ END · Field-service platform ═══════════════╝ -->
+        <!--[/item:fieldservice]-->
+
+        <!--[item:retro]-->
+        <!-- ╔═══════════════════════════════════════════════════════════════╗
+             ║  PROJECT · Reverse engineering                                ║
+             ╚═══════════════════════════════════════════════════════════════╝ -->
+        <article class="project">
+          <div class="project__media reveal">
+
+            <!-- GALLERY · one <img> per photo (src, alt, optional data-caption).
+                 Add or remove a photo = add or remove one <img> line below. -->
+            <!--[edit:retro-gallery]-->
+            <div class="gallery">
+              <img src="img/seed/media-01.jpg" loading="lazy"
+                   alt="A placeholder for a reverse engineering image."
+                   data-caption="Reverse engineering (placeholder image)" />
+            </div>
+            <!--[/edit:retro-gallery]-->
+
+          </div>
+          <div class="project__body reveal d1">
+
+            <!-- NUMBER · automatic (01, 02…) · leave this span empty -->
+            <span class="project__index"></span>
+
+            <!--[edit:retro-title]-->
+            <h3 class="project__title">Reverse engineering</h3>
+            <!--[/edit:retro-title]-->
+
+            <!--[edit:retro-meta]-->
+            <p class="project__meta">Personal projects</p>
+            <!--[/edit:retro-meta]-->
+
+            <!--[edit:retro-lead]-->
+            <p class="project__lead">Taking old systems apart until they make sense, then building new things inside them.</p>
+            <!--[/edit:retro-lead]-->
+
+            <!--[edit:retro-desc]-->
+            <p class="project__desc">I built 6502 compression and decompression tools for two games, and a modding tool for graphics, palettes and 65816 assembly. The modding tool produced a build of Teenage Mutant Ninja Turtles: Tournament Fighters for statewide tournaments.</p>
+            <!--[/edit:retro-desc]-->
+
+            <!-- OPTIONAL · stats · empty = auto-hidden -->
+            <!--[edit:retro-stats]-->
+            <div class="stats"></div>
+            <!--[/edit:retro-stats]-->
+
+            <!-- OPTIONAL · highlights · empty = auto-hidden -->
+            <!--[edit:retro-highlights]-->
+            <ul class="highlights">
+              <li>An unofficial map editor for Warcraft I: Remastered, in 2024.</li>
+              <li>In development: Venus: The Fusion Frontier, a simulation game that runs on the 6502.</li>
+              <li>Code for an open-source online JavaScript and TypeScript game, from 2014 to 2020.</li>
+            </ul>
+            <!--[/edit:retro-highlights]-->
+
+            <!-- SPECS · the engine's form names these two Role and Stack -->
+            <div class="specs">
+              <!--[edit:retro-spec-role]-->
+              <div class="spec"><dt>Role</dt><dd>Developer</dd></div>
+              <!--[/edit:retro-spec-role]-->
+              <!--[edit:retro-spec-stack]-->
+              <div class="spec"><dt>Stack</dt><dd><span class="chips"><span class="chip">6502</span><span class="chip">65816</span><span class="chip">Assembly</span><span class="chip">Data compression</span></span></dd></div>
+              <!--[/edit:retro-spec-stack]-->
+            </div>
+
+          </div>
+        </article>
+        <!-- ╚═══════════════ END · Reverse engineering ═══════════════╝ -->
+        <!--[/item:retro]-->
+
+        <!--[item:relay]-->
+        <!-- ╔═══════════════════════════════════════════════════════════════╗
+             ║  PROJECT · Relay and RelayPing                                ║
+             ╚═══════════════════════════════════════════════════════════════╝ -->
+        <article class="project">
+          <div class="project__media reveal">
+
+            <!-- GALLERY · one <img> per photo (src, alt, optional data-caption).
+                 Add or remove a photo = add or remove one <img> line below. -->
+            <!--[edit:relay-gallery]-->
+            <div class="gallery">
+              <img src="img/work/relay-program-iczie3.jpg" loading="lazy"
+                   srcset="img/work/relay-program-iczie3_sd.webp 480w, img/work/relay-program-iczie3.jpg 1536w"
+                   sizes="(max-width: 880px) 84vw, (max-width: 1180px) 48vw, 562px"
+                   width="1536"
+                   height="1024"
+                   alt="relay program"
+                   data-sd="img/work/relay-program-iczie3_sd.webp"
+                   data-original="img/work/relay-program-iczie3_original.png"
+                   data-original-size="1536x1024"
+                   data-original-bytes="1142060" />
+            </div>
+            <!--[/edit:relay-gallery]-->
+
+          </div>
+          <div class="project__body reveal d1">
+
+            <!-- NUMBER · automatic (01, 02…) · leave this span empty -->
+            <span class="project__index"></span>
+
+            <!--[edit:relay-title]-->
+            <h3 class="project__title">Relay and RelayPing</h3>
+            <!--[/edit:relay-title]-->
+
+            <!--[edit:relay-meta]-->
+            <p class="project__meta">Harris XR · Since 2023</p>
+            <!--[/edit:relay-meta]-->
+
+            <!--[edit:relay-lead]-->
+            <p class="project__lead">Data-integration and automation tools that small businesses run on every day, and a network monitor with its own iOS app.</p>
+            <!--[/edit:relay-lead]-->
+
+            <!--[edit:relay-desc]-->
+            <p class="project__desc">The Relay suite is in daily production use at a regional appliance-service company. RelayPing watches networks and reports to an iOS app that is in production, and a custom data-compression scheme keeps the bandwidth it needs low.</p>
+            <!--[/edit:relay-desc]-->
+
+            <!-- OPTIONAL · stats · empty = auto-hidden -->
+            <!--[edit:relay-stats]-->
+            <div class="stats"></div>
+            <!--[/edit:relay-stats]-->
+
+            <!-- OPTIONAL · highlights · empty = auto-hidden -->
+            <!--[edit:relay-highlights]-->
+            <ul class="highlights">
+              <li>An interactive SMS texting platform, built to the carrier rules in the CTIA guidelines.</li>
+            </ul>
+            <!--[/edit:relay-highlights]-->
+
+            <!-- SPECS · the engine's form names these two Role and Stack -->
+            <div class="specs">
+              <!--[edit:relay-spec-role]-->
+              <div class="spec"><dt>Role</dt><dd>Co-founder, lead programmer</dd></div>
+              <!--[/edit:relay-spec-role]-->
+              <!--[edit:relay-spec-stack]-->
+              <div class="spec"><dt>Stack</dt><dd><span class="chips"><span class="chip">iOS</span><span class="chip">REST APIs</span><span class="chip">SMS</span><span class="chip">Data compression</span></span></dd></div>
+              <!--[/edit:relay-spec-stack]-->
+            </div>
+
+          </div>
+        </article>
+        <!-- ╚═══════════════ END · Relay and RelayPing ═══════════════╝ -->
+        <!--[/item:relay]-->
+
+        <!--[item:blockade]-->
+        <!-- ╔═══════════════════════════════════════════════════════════════╗
+             ║  PROJECT · Blockade Runner                                    ║
+             ╚═══════════════════════════════════════════════════════════════╝ -->
+        <article class="project">
+          <div class="project__media reveal">
+
+            <!-- GALLERY · one <img> per photo (src, alt, optional data-caption).
+                 Add or remove a photo = add or remove one <img> line below. -->
+            <!--[edit:blockade-gallery]-->
+            <div class="gallery">
+              <img src="img/work/blockade-runner-lmct5n.jpg" loading="lazy"
+                   srcset="img/work/blockade-runner-lmct5n_sd.webp 480w, img/work/blockade-runner-lmct5n.jpg 1600w"
+                   sizes="(max-width: 880px) 84vw, (max-width: 1180px) 48vw, 562px"
+                   width="1600"
+                   height="900"
+                   alt="blockade runner"
+                   data-sd="img/work/blockade-runner-lmct5n_sd.webp"
+                   data-original="img/work/blockade-runner-lmct5n_original.png"
+                   data-original-size="1600x900"
+                   data-original-bytes="3004684" />
+            </div>
+            <!--[/edit:blockade-gallery]-->
+
+          </div>
+          <div class="project__body reveal d1">
+
+            <!-- NUMBER · automatic (01, 02…) · leave this span empty -->
+            <span class="project__index"></span>
+
+            <!--[edit:blockade-title]-->
+            <h3 class="project__title">Blockade Runner</h3>
+            <!--[/edit:blockade-title]-->
+
+            <!--[edit:blockade-meta]-->
+            <p class="project__meta">ZanMgt · Since 2011</p>
+            <!--[/edit:blockade-meta]-->
+
+            <!--[edit:blockade-lead]-->
+            <p class="project__lead">A 3D voxel space sim, on a custom engine that I wrote and then moved from XNA to SharpDX.</p>
+            <!--[/edit:blockade-lead]-->
+
+            <!--[edit:blockade-desc]-->
+            <p class="project__desc">As engine lead I built the engine's internals: the 2D and 3D rendering pipelines and their shaders, the font rendering, the asset loading, the netcode and the modding support.</p>
+            <!--[/edit:blockade-desc]-->
+
+            <!-- OPTIONAL · stats · empty = auto-hidden -->
+            <!--[edit:blockade-stats]-->
+            <div class="stats"></div>
+            <!--[/edit:blockade-stats]-->
+
+            <!-- OPTIONAL · highlights · empty = auto-hidden -->
+            <!--[edit:blockade-highlights]-->
+            <ul class="highlights">
+              <li>Also made Liquid Cubed, a real-time simulation of liquid in a voxel world.</li>
+            </ul>
+            <!--[/edit:blockade-highlights]-->
+
+            <!-- SPECS · the engine's form names these two Role and Stack -->
+            <div class="specs">
+              <!--[edit:blockade-spec-role]-->
+              <div class="spec"><dt>Role</dt><dd>Co-founder, engine lead</dd></div>
+              <!--[/edit:blockade-spec-role]-->
+              <!--[edit:blockade-spec-stack]-->
+              <div class="spec"><dt>Stack</dt><dd><span class="chips"><span class="chip">C#</span><span class="chip">XNA</span><span class="chip">SharpDX</span><span class="chip">HLSL</span></span></dd></div>
+              <!--[/edit:blockade-spec-stack]-->
+            </div>
+
+          </div>
+        </article>
+        <!-- ╚═══════════════ END · Blockade Runner ═══════════════╝ -->
+        <!--[/item:blockade]-->
+        <!--[/list:projects]-->
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. LATEST FROM THE BLOG
+         ------------------------------------------------------------
+         The list inside is machine-owned. The publisher writes it from
+         the blog manifest on every publish that changes it, so it can
+         never disagree with the blog. data-ced="generated" makes the
+         editor open it read-only and name its owner.
+
+         Static HTML on purpose. No fetch and no script, so it is there
+         for a crawler and for a reader with scripting off.
+         ============================================================ -->
+    <section class="latest" id="latest" aria-label="Latest from the blog">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <!--[edit:latest-eyebrow]-->
+          <span class="eyebrow">Latest</span>
+          <!--[/edit:latest-eyebrow]-->
+        </div>
+        <!--[edit:latest-h2]-->
+        <h2>From the blog.</h2>
+        <!--[/edit:latest-h2]-->
+        <!--[edit:blog-highlights]-->
+        <div class="latest__list reveal d1" data-ced="generated">
+          <a class="latest__item" href="blog/2609.html?post=p0001#p0001">
+            <time datetime="2026-09-23">September 23, 2026</time>
+            <span class="latest__title">Hello from the engine</span>
+          </a>
+          <a class="textlink latest__all" href="blog.html">All posts</a>
+        </div>
+        <!--[/edit:blog-highlights]-->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       7. FOOTER
+       ------------------------------------------------------------
+       About and Contact, which close every page. Shared chrome,
+       like the header: byte-identical on every managed page, and
+       held to that by the suite. Its copy regions are shared, so an
+       edit to one is written to every page. A month page carries
+       the same bytes, taken from blog.html when the blog is
+       published or rebuilt.
+       ============================================================ -->
+  <footer class="site-footer">
+    <section class="about" id="about" aria-label="About Nathaniel">
+      <div class="wrap">
+        <div class="section-head reveal"><!--[edit:about-eyebrow]--><span class="eyebrow">About</span><!--[/edit:about-eyebrow]--></div>
+        <div class="about__grid">
+          <div class="reveal">
+            <div class="portrait">
+              <img src="img/nathaniel-portrait.jpg" width="512" height="512"
+                   alt="Nathaniel E. Harris." loading="lazy" />
+            </div>
+          </div>
+          <div class="about__body reveal d1">
+            <!--[edit:about-lede]-->
+            <p class="lede">I am Nathaniel Harris, a systems software engineer. I build reliable software for complex systems.</p>
+            <!--[/edit:about-lede]-->
+            <!--[edit:about-p1]-->
+            <p>I am self-taught, and I have done this work for more than fifteen years, from custom voxel game engines to space-domain awareness tools. Today I work on Forerunner at Space Interactions, on the services and pipelines behind satellite and orbital data, and the views that show it.</p>
+            <!--[/edit:about-p1]-->
+            <!--[edit:about-p2]-->
+            <p>I work at every layer: Rust and MongoDB services, TypeScript and Electron frontends, C++ and HLSL on the GPU, and assembly on the bare machine. I do my best work on small teams that build systems which seem impossible at that size.</p>
+            <!--[/edit:about-p2]-->
+            <!--[edit:about-p3]-->
+            <p>I like domains where the rules are external and non-negotiable, such as orbital data, field-service operations and SMS compliance. To learn an unfamiliar system, I take it apart until its opinions become obvious. Then I work inside it, not against it.</p>
+            <!--[/edit:about-p3]-->
+            <!--[edit:about-place]-->
+            <p class="place">Based in Interlochen, Michigan. Co-founder of <a href="https://harrisxr.com" target="_blank" rel="noopener">Harris XR</a>.</p>
+            <!--[/edit:about-place]-->
+            <!--[edit:about-link]-->
+            <a class="textlink" href="https://www.linkedin.com/in/nathanieleliasharris/" target="_blank" rel="noopener">
+              Find me on LinkedIn
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+            <!--[/edit:about-link]-->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-label="Contact">
+      <div class="wrap">
+        <div class="reveal">
+          <!--[edit:contact-eyebrow]-->
+          <span class="eyebrow eyebrow--center">Contact</span>
+          <!--[/edit:contact-eyebrow]-->
+          <!--[edit:contact-h2]-->
+          <h2>Say hello.</h2>
+          <!--[/edit:contact-h2]-->
+          <!--[edit:contact-email]-->
+          <a class="email" href="mailto:nathaniel@harrisxr.com">nathaniel@harrisxr.com</a>
+          <!--[/edit:contact-email]-->
+        </div>
+        <div class="contact__actions reveal d1">
+          <div class="contact__row">
+            <!--[edit:contact-btn-email]-->
+            <a class="contact-btn contact-btn--call" href="mailto:nathaniel@harrisxr.com" aria-label="Email Nathaniel">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.4l8 5 8-5V6H4zm16 2.7-7.47 4.67a1 1 0 0 1-1.06 0L4 8.7V18h16V8.7z"/></svg>
+              Email
+            </a>
+            <!--[/edit:contact-btn-email]-->
+            <!--[edit:contact-btn-linkedin]-->
+            <a class="contact-btn contact-btn--call" href="https://www.linkedin.com/in/nathanieleliasharris/" target="_blank" rel="noopener" aria-label="Nathaniel on LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+              LinkedIn
+            </a>
+            <!--[/edit:contact-btn-linkedin]-->
+            <!--[edit:contact-btn-site]-->
+            <a class="contact-btn contact-btn--call" href="https://harrisxr.com" target="_blank" rel="noopener" aria-label="The Harris XR website">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.99 7.99 0 0 1 5.08 16zm2.95-8H5.08a7.99 7.99 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+              Harris XR
+            </a>
+            <!--[/edit:contact-btn-site]-->
+          </div>
+        </div>
+      </div>
+
+      <!--[edit:endbar]-->
+      <div class="endbar">© 2026 Nathaniel E. Harris</div>
+      <!--[/edit:endbar]-->
+    </section>
+  </footer>
+
+  <!-- ╔══════════════════════════════════════════════════════════════════════╗
+       ║  BUILT-IN EDITOR · press the corner mark, or run edit() in the       ║
+       ║  console. Copy regions are fenced by [edit:slug] comment pairs, and  ║
+       ║  the engine's guide is libraries/harrisxrwebengine/README.md.        ║
+       ╚══════════════════════════════════════════════════════════════════════╝ -->
+</body>
+</html>

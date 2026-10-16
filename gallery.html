@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     gallery.html - the gallery page.
+
+     Markup only. Style lives in the engine's engine.css and this site's
+     site.css, and behavior lives in the engine's script trunks, loaded
+     in a fixed order from the head.
+
+     Copy the editor can change is fenced by [edit:slug] comment
+     pairs, each wrapping exactly one element. Do not nest a pair
+     more than one level deep, and do not put two elements inside
+     one pair: the marker checker enforces both rules.
+
+     Sections:
+       1. HEAD AND META      4. GALLERY
+       2. CHROME             5. FOOTER
+       3. INTRO
+
+     The grid rules are in section 3 of the engine's engine.css. The
+     packer in gallery.js arranges the tiles, and the page is correct
+     with no script at all.
+     ============================================================ -->
+
+<html lang="en">
+<head>
+  <!-- ============================================================
+       1. HEAD AND META
+       ------------------------------------------------------------
+       This page's own title, canonical and social cards. Every page
+       carries its own; they are not shared chrome.
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Gallery · Nathaniel E. Harris</title>
+  <meta name="description" content="Images from the projects of Nathaniel E. Harris: engines, simulations, orbital views and retro hacks." />
+  <meta name="author" content="Nathaniel E. Harris" />
+  <meta name="theme-color" content="#16181d" />
+  <link rel="canonical" href="https://USERNAME.github.io/nathan-portfolio/gallery.html" />
+  <link rel="alternate" type="application/atom+xml" title="Nathaniel E. Harris - Blog" href="feed.xml" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+  <!-- Open Graph / social share -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nathaniel E. Harris" />
+  <meta property="og:title" content="Gallery · Nathaniel E. Harris" />
+  <meta property="og:description" content="Images from the projects of Nathaniel E. Harris: engines, simulations, orbital views and retro hacks." />
+  <meta property="og:url" content="https://USERNAME.github.io/nathan-portfolio/gallery.html" />
+  <meta property="og:image" content="https://USERNAME.github.io/nathan-portfolio/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nathaniel E. Harris, systems software engineer." />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gallery · Nathaniel E. Harris" />
+  <meta name="twitter:description" content="Images from the projects of Nathaniel E. Harris: engines, simulations, orbital views and retro hacks." />
+  <meta name="twitter:image" content="https://USERNAME.github.io/nathan-portfolio/og-image.png" />
+
+  <!-- Inter via Google Fonts (with a robust system fallback in CSS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet" />
+
+  <!-- The engine's style first and this site's second, so this site's
+       tokens set the theme. -->
+  <link rel="stylesheet" href="libraries/harrisxrwebengine/engine.css" />
+  <link rel="stylesheet" href="site.css" />
+
+  <!-- The site's script, in a fixed order. defer keeps document order and runs
+       each file after parsing, so every trunk sees the whole page.
+       release.js names the engine release and creates window.AMH, the one
+       namespace the trunks share, and site.config.js holds this site's
+       facts. Both come first. The trunks are the engine's, in
+       libraries/harrisxrwebengine/.
+       imagesengine.js is the image engine. Every image the site takes in
+       goes through it, so every page loads it, after work.js and before
+       the trunks that call it.
+       gallery.js is the tile packer and the editor's tile consumer, on
+       this page and nowhere else. It follows tool.js because it claims
+       its region with the editor kit at load. -->
+  <script defer src="libraries/harrisxrwebengine/release.js"></script>
+  <script defer src="site.config.js"></script>
+  <script defer src="libraries/harrisxrwebengine/site.js"></script>
+  <script defer src="libraries/harrisxrwebengine/work.js"></script>
+  <script defer src="libraries/harrisxrwebengine/imagesengine.js"></script>
+  <script defer src="libraries/harrisxrwebengine/tool.js"></script>
+  <script defer src="libraries/harrisxrwebengine/gallery.js"></script>
+
+  <!-- Graceful degradation: without JS the reveal animations never fire, so
+       force all content visible.
+       These rules stay inline. A <noscript> block applies only when scripting
+       is off, and a linked stylesheet cannot carry that condition. -->
+  <noscript>
+    <style>
+      .reveal, .reveal-hero > * { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+</head>
+
+<body>
+  <!-- ============================================================
+       2. CHROME
+       ------------------------------------------------------------
+       The scroll progress bar, the header, and the nav that doubles
+       as the mobile drawer. site.js owns their state.
+
+       The header is shared chrome: byte-identical on every managed
+       page, and held to that by the suite. Its copy regions are
+       shared too: an edit to one is written to every page that has
+       it, in the same publish.
+       ============================================================ -->
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="site-header" id="header">
+    <a class="brand" href="index.html#top" aria-label="Nathaniel Harris, home">
+      <span class="mark" aria-hidden="true">NH</span>
+      <span class="brand__name">
+        <!--[edit:brand-title]-->
+        <span class="brand__title full">NATHANIEL HARRIS</span>
+        <!--[/edit:brand-title]-->
+        <!--[edit:brand-sub]-->
+        <span class="brand__sub">Systems software engineer</span>
+        <!--[/edit:brand-sub]-->
+      </span>
+    </a>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- A nav link names the page it points into, so the same bytes work on
+         every page. site.js treats a link naming THIS page as an in-page
+         anchor, and marks the item whose href is this page as current.
+         "#contact" stays bare: every page has its own contact section. -->
+    <nav class="nav" id="nav" aria-label="Primary">
+      <div class="nav__links">
+        <!--[edit:nav-work]-->
+        <a href="index.html#work">Work</a>
+        <!--[/edit:nav-work]-->
+        <!--[edit:nav-gallery]-->
+        <a href="gallery.html">Gallery</a>
+        <!--[/edit:nav-gallery]-->
+        <!--[edit:nav-blog]-->
+        <a href="blog.html">Blog</a>
+        <!--[/edit:nav-blog]-->
+        <!--[edit:nav-about]-->
+        <a href="about.html">About</a>
+        <!--[/edit:nav-about]-->
+        <!--[edit:nav-contact]-->
+        <a href="#contact">Contact</a>
+        <!--[/edit:nav-contact]-->
+      </div>
+    </nav>
+  </header>
+
+  <!-- dim scrim behind the mobile nav drawer -->
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+  <main id="top">
+
+    <!-- ============================================================
+         3. INTRO
+         ------------------------------------------------------------
+         What this page is, in two sentences. Editable copy.
+         ============================================================ -->
+    <section class="gal-intro" aria-label="About this gallery">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <!--[edit:gallery-eyebrow]-->
+          <span class="eyebrow">Gallery</span>
+          <!--[/edit:gallery-eyebrow]-->
+        </div>
+        <!--[edit:gallery-h2]-->
+        <h2>Screens, renders and builds.</h2>
+        <!--[/edit:gallery-h2]-->
+        <!--[edit:gallery-intro]-->
+        <p class="lede">Pictures from the projects: engines, simulations, orbital views and retro hacks.</p>
+        <!--[/edit:gallery-intro]-->
+        <!--[edit:gallery-note]-->
+        <p class="gal-note">More images are on the way.</p>
+        <!--[/edit:gallery-note]-->
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. GALLERY
+         ------------------------------------------------------------
+         One train per section. A train opens with its title band and
+         then its tiles. The trains are a LIST: the editor may add one,
+         remove one and reorder them. Each train is one item, and its
+         id is permanent.
+
+         Two things in the band are written for the author and must
+         not be typed here: the number, which is a CSS counter, and
+         the image count, which the editor writes at export.
+
+         data-w is the width a tile prefers, in six columns;
+         data-priority is the order the author wants, lower first;
+         data-span is the width a reader with no script gets. The
+         packer in gallery.js sets the width on screen.
+         ============================================================ -->
+    <section class="gal" id="gallery" aria-label="Gallery">
+      <div class="wrap">
+
+        <!--[list:gallery]-->
+        <!--[item:seeds]-->
+        <!--[edit:gal-seeds]-->
+        <div class="gal-train" data-section="seeds">
+          <header class="gal-train__head">
+            <span class="gal-train__n"><i class="gal-train__i"></i>Section</span>
+            <h3 class="gal-train__title">Coming soon</h3>
+            <span class="gal-train__rule" aria-hidden="true"></span>
+            <span class="gal-train__meta"><span class="gal-train__year">2026</span><span class="gal-train__count">8 images</span></span>
+          </header>
+          <figure class="gal-tile" data-w="2" data-priority="1" data-span="2">
+            <img src="img/seed/gallery-01.jpg" alt="A wide placeholder tile." loading="lazy" decoding="async"
+                 width="1600" height="900" />
+            <figcaption class="gal-tile__cap">A wide tile</figcaption>
+          </figure>
+          <figure class="gal-tile" data-w="2" data-priority="1" data-span="2">
+            <img src="img/seed/gallery-02.jpg" alt="A square placeholder tile." loading="lazy" decoding="async"
+                 width="1200" height="1200" />
+            <figcaption class="gal-tile__cap">A square tile</figcaption>
+          </figure>
+          <figure class="gal-tile" data-w="2" data-priority="2" data-span="2">
+            <img src="img/seed/gallery-03.jpg" alt="Another wide placeholder tile." loading="lazy" decoding="async"
+                 width="1600" height="900" />
+            <figcaption class="gal-tile__cap">Another wide tile</figcaption>
+          </figure>
+          <figure class="gal-tile" data-w="3" data-priority="1" data-span="3">
+            <img src="img/seed/gallery-04.jpg" alt="A panorama placeholder tile." loading="lazy" decoding="async"
+                 width="1500" height="500" />
+            <figcaption class="gal-tile__cap">A panorama</figcaption>
+          </figure>
+          <figure class="gal-tile" data-w="3" data-priority="2" data-span="3">
+            <img src="img/seed/gallery-05.jpg" alt="A wide placeholder tile, three columns." loading="lazy" decoding="async"
+                 width="1600" height="900" />
+            <figcaption class="gal-tile__cap">Three columns wide</figcaption>
+          </figure>
+          <figure class="gal-tile" data-w="4" data-priority="2" data-span="4">
+            <img src="img/seed/gallery-06.jpg" alt="A long placeholder tile, four columns." loading="lazy" decoding="async"
+                 width="1600" height="800" />
+            <figcaption class="gal-tile__cap">Four columns wide</figcaption>
+          </figure>
+          <figure class="gal-tile" data-w="2" data-priority="3" data-span="2">
+            <img src="img/seed/gallery-07.jpg" alt="A square placeholder tile, last in its row." loading="lazy" decoding="async"
+                 width="1200" height="1200" />
+            <figcaption class="gal-tile__cap">A square, last in its row</figcaption>
+          </figure>
+          <figure class="gal-tile" data-w="3" data-priority="3" data-span="3">
+            <img src="img/seed/gallery-08.jpg" alt="The last placeholder tile." loading="lazy" decoding="async"
+                 width="1600" height="900" />
+            <figcaption class="gal-tile__cap">The last tile</figcaption>
+          </figure>
+        </div>
+        <!--[/edit:gal-seeds]-->
+        <!--[/item:seeds]-->
+        <!--[/list:gallery]-->
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       5. FOOTER
+       ------------------------------------------------------------
+       About and Contact, which close every page. Shared chrome,
+       like the header: byte-identical on every managed page, and
+       held to that by the suite. Its copy regions are shared, so an
+       edit to one is written to every page. A month page carries
+       the same bytes, taken from blog.html when the blog is
+       published or rebuilt.
+       ============================================================ -->
+  <footer class="site-footer">
+    <section class="about" id="about" aria-label="About Nathaniel">
+      <div class="wrap">
+        <div class="section-head reveal"><!--[edit:about-eyebrow]--><span class="eyebrow">About</span><!--[/edit:about-eyebrow]--></div>
+        <div class="about__grid">
+          <div class="reveal">
+            <div class="portrait">
+              <img src="img/nathaniel-portrait.jpg" width="512" height="512"
+                   alt="Nathaniel E. Harris." loading="lazy" />
+            </div>
+          </div>
+          <div class="about__body reveal d1">
+            <!--[edit:about-lede]-->
+            <p class="lede">I am Nathaniel Harris, a systems software engineer. I build reliable software for complex systems.</p>
+            <!--[/edit:about-lede]-->
+            <!--[edit:about-p1]-->
+            <p>I am self-taught, and I have done this work for more than fifteen years, from custom voxel game engines to space-domain awareness tools. Today I work on Forerunner at Space Interactions, on the services and pipelines behind satellite and orbital data, and the views that show it.</p>
+            <!--[/edit:about-p1]-->
+            <!--[edit:about-p2]-->
+            <p>I work at every layer: Rust and MongoDB services, TypeScript and Electron frontends, C++ and HLSL on the GPU, and assembly on the bare machine. I do my best work on small teams that build systems which seem impossible at that size.</p>
+            <!--[/edit:about-p2]-->
+            <!--[edit:about-p3]-->
+            <p>I like domains where the rules are external and non-negotiable, such as orbital data, field-service operations and SMS compliance. To learn an unfamiliar system, I take it apart until its opinions become obvious. Then I work inside it, not against it.</p>
+            <!--[/edit:about-p3]-->
+            <!--[edit:about-place]-->
+            <p class="place">Based in Interlochen, Michigan. Co-founder of <a href="https://harrisxr.com" target="_blank" rel="noopener">Harris XR</a>.</p>
+            <!--[/edit:about-place]-->
+            <!--[edit:about-link]-->
+            <a class="textlink" href="https://www.linkedin.com/in/nathanieleliasharris/" target="_blank" rel="noopener">
+              Find me on LinkedIn
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+            <!--[/edit:about-link]-->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-label="Contact">
+      <div class="wrap">
+        <div class="reveal">
+          <!--[edit:contact-eyebrow]-->
+          <span class="eyebrow eyebrow--center">Contact</span>
+          <!--[/edit:contact-eyebrow]-->
+          <!--[edit:contact-h2]-->
+          <h2>Say hello.</h2>
+          <!--[/edit:contact-h2]-->
+          <!--[edit:contact-email]-->
+          <a class="email" href="mailto:nathaniel@harrisxr.com">nathaniel@harrisxr.com</a>
+          <!--[/edit:contact-email]-->
+        </div>
+        <div class="contact__actions reveal d1">
+          <div class="contact__row">
+            <!--[edit:contact-btn-email]-->
+            <a class="contact-btn contact-btn--call" href="mailto:nathaniel@harrisxr.com" aria-label="Email Nathaniel">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.4l8 5 8-5V6H4zm16 2.7-7.47 4.67a1 1 0 0 1-1.06 0L4 8.7V18h16V8.7z"/></svg>
+              Email
+            </a>
+            <!--[/edit:contact-btn-email]-->
+            <!--[edit:contact-btn-linkedin]-->
+            <a class="contact-btn contact-btn--call" href="https://www.linkedin.com/in/nathanieleliasharris/" target="_blank" rel="noopener" aria-label="Nathaniel on LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+              LinkedIn
+            </a>
+            <!--[/edit:contact-btn-linkedin]-->
+            <!--[edit:contact-btn-site]-->
+            <a class="contact-btn contact-btn--call" href="https://harrisxr.com" target="_blank" rel="noopener" aria-label="The Harris XR website">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.99 7.99 0 0 1 5.08 16zm2.95-8H5.08a7.99 7.99 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+              Harris XR
+            </a>
+            <!--[/edit:contact-btn-site]-->
+          </div>
+        </div>
+      </div>
+
+      <!--[edit:endbar]-->
+      <div class="endbar">© 2026 Nathaniel E. Harris</div>
+      <!--[/edit:endbar]-->
+    </section>
+  </footer>
+
+  <!-- ╔══════════════════════════════════════════════════════════════════════╗
+       ║  BUILT-IN EDITOR · press the corner mark, or run edit() in the       ║
+       ║  console. Copy regions are fenced by [edit:slug] comment pairs, and  ║
+       ║  the engine's guide is libraries/harrisxrwebengine/README.md.        ║
+       ╚══════════════════════════════════════════════════════════════════════╝ -->
+</body>
+</html>

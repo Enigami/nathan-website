@@ -1,0 +1,10 @@
+.localonly/
+docs/
+deletethese/
+.claude/
+noupload/
+temp/
+CLAUDE.md
+publicdocs/README.md
+robots.txt
+README.md
