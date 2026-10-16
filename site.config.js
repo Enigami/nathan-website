@@ -20,8 +20,10 @@
                      wordmark is editable copy. ogImage is a 1200 by
                      630 image at the site root.
      publicUrl       The site's canonical address, with a trailing
-                     slash. The site is a GitHub Pages project site,
-                     so the address ends in the repository's folder.
+                     slash. GitHub Pages serves the site at its own
+                     domain, so the address is the bare domain. CNAME
+                     at the site root names the same domain. The head
+                     of each page repeats this address by hand.
      pages           The pages the editor may read and write, as paths
                      from the site root. The sitemap lists them.
      sharedSlugs     The regions that read the same on every page. An
@@ -38,7 +40,7 @@ AMH.config = {
   avatar: "img/nathaniel-portrait.jpg",
   ogImage: "og-image.png",
   ogImageAlt: "Nathaniel E. Harris, systems software engineer.",
-  publicUrl: "https://USERNAME.github.io/nathan-portfolio/",
+  publicUrl: "https://nathanieleliasharris.com/",
   pages: [
     { path: "index.html", label: "Home" },
     { path: "gallery.html", label: "Gallery" },
