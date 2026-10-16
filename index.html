@@ -255,7 +255,7 @@
             <p class="focus__text">Custom engines, firmware, reverse engineering and machine code, down to 6502 and x86 assembly.</p>
             <!--[/edit:focus-internals-text]-->
             <!--[edit:focus-internals-chips]-->
-            <div class="chips"><span class="chip">C++</span><span class="chip">Firmware</span><span class="chip">6502</span><span class="chip">x86</span></div>
+            <div class="chips"><span class="chip">C++</span><span class="chip">Firmware</span><span class="chip">6502</span><span class="chip">65816</span><span class="chip">x86</span></div>
             <!--[/edit:focus-internals-chips]-->
           </article>
         </div>
@@ -288,7 +288,7 @@
           <h2>Selected projects.</h2>
           <!--[/edit:work-h2]-->
           <!--[edit:work-intro]-->
-          <p>Backend platforms, operational software and systems internals, from a space-domain awareness platform to 6502 and x86 assembly.</p>
+          <p>Backend platforms, operational software and systems internals, from a space-domain awareness platform to 6502 and 65816 assembly.</p>
           <!--[/edit:work-intro]-->
         </div>
 
@@ -304,16 +304,9 @@
                  Add or remove a photo = add or remove one <img> line below. -->
             <!--[edit:forerunner-gallery]-->
             <div class="gallery">
-              <img src="img/work/forerunner-3-1kpwjg.jpg" loading="lazy"
-                   srcset="img/work/forerunner-3-1kpwjg_sd.webp 480w, img/work/forerunner-3-1kpwjg.jpg 1604w"
-                   sizes="(max-width: 880px) 84vw, (max-width: 1180px) 48vw, 562px"
-                   width="1604"
-                   height="800"
-                   alt="forerunner 3"
-                   data-sd="img/work/forerunner-3-1kpwjg_sd.webp"
-                   data-original="img/work/forerunner-3-1kpwjg_original.png"
-                   data-original-size="1604x800"
-                   data-original-bytes="1939498" />
+              <img src="img/seed/edit-01.jpg" loading="lazy"
+                   alt="A placeholder for a Forerunner image."
+                   data-caption="Forerunner (placeholder image)" />
             </div>
             <!--[/edit:forerunner-gallery]-->
 
@@ -367,74 +360,6 @@
         <!-- ╚═══════════════ END · Forerunner ═══════════════╝ -->
         <!--[/item:forerunner]-->
 
-        <!--[item:snescd]-->
-        <!-- ╔═══════════════════════════════════════════════════════════════╗
-             ║  PROJECT · Super NES CD-ROM                                   ║
-             ╚═══════════════════════════════════════════════════════════════╝ -->
-        <article class="project">
-          <div class="project__media reveal">
-
-            <!-- GALLERY · one <img> per photo (src, alt, optional data-caption).
-                 Add or remove a photo = add or remove one <img> line below. -->
-            <!--[edit:snescd-gallery]-->
-            <div class="gallery">
-              <img src="img/seed/stage-01.jpg" loading="lazy"
-                   alt="A placeholder for a Super NES CD-ROM image."
-                   data-caption="Super NES CD-ROM (placeholder image)" />
-            </div>
-            <!--[/edit:snescd-gallery]-->
-
-          </div>
-          <div class="project__body reveal d1">
-
-            <!-- NUMBER · automatic (01, 02…) · leave this span empty -->
-            <span class="project__index"></span>
-
-            <!--[edit:snescd-title]-->
-            <h3 class="project__title">Super NES CD-ROM</h3>
-            <!--[/edit:snescd-title]-->
-
-            <!--[edit:snescd-meta]-->
-            <p class="project__meta">SFX-100 prototype · In progress</p>
-            <!--[/edit:snescd-meta]-->
-
-            <!--[edit:snescd-lead]-->
-            <p class="project__lead">A clean-room BIOS, tools and software for the <span class="nowrap">SFX-100</span>, the SNES CD prototype also known as the "Nintendo PlayStation".</p>
-            <!--[/edit:snescd-lead]-->
-
-            <!--[edit:snescd-desc]-->
-            <p class="project__desc">I am writing the BIOS from scratch. My reference is <a href="https://problemkaputt.de/fullsnes.htm" target="_blank" rel="noopener">Martin Korth's documentation</a>, which covers most of the SNES hardware and its peripherals. The BIOS is designed to work with the prototype's own CD-ROM drive or with a modern one, so a recreation does not need one specific out-of-production Sony drive. Its design also brings in the SuperFX chip that the prototype planned for but did not yet have.</p>
-            <!--[/edit:snescd-desc]-->
-
-            <!-- OPTIONAL · stats · empty = auto-hidden -->
-            <!--[edit:snescd-stats]-->
-            <div class="stats"></div>
-            <!--[/edit:snescd-stats]-->
-
-            <!-- OPTIONAL · highlights · empty = auto-hidden -->
-            <!--[edit:snescd-highlights]-->
-            <ul class="highlights">
-              <li>Optional SuperFX GSU acceleration: the same software runs on the original prototype, and uses the GSU when one is present.</li>
-              <li>One defined BIOS version, so software has one platform to build on and a small community does not split across forks.</li>
-              <li>Early tests pass in the <span class="nowrap">SFX-100</span> version of <a href="https://problemkaputt.de/sns.htm" target="_blank" rel="noopener">no$sns</a>, Martin Korth's emulator. Tests on the physical prototype come next, and units are scarce.</li>
-            </ul>
-            <!--[/edit:snescd-highlights]-->
-
-            <!-- SPECS · the engine's form names these two Role and Stack -->
-            <div class="specs">
-              <!--[edit:snescd-spec-role]-->
-              <div class="spec"><dt>Role</dt><dd>Developer</dd></div>
-              <!--[/edit:snescd-spec-role]-->
-              <!--[edit:snescd-spec-stack]-->
-              <div class="spec"><dt>Stack</dt><dd><span class="chips"><span class="chip">65816</span><span class="chip">SuperFX GSU</span><span class="chip">Firmware</span><span class="chip">CD-ROM</span></span></dd></div>
-              <!--[/edit:snescd-spec-stack]-->
-            </div>
-
-          </div>
-        </article>
-        <!-- ╚═══════════════ END · Super NES CD-ROM ═══════════════╝ -->
-        <!--[/item:snescd]-->
-
         <!--[item:fieldservice]-->
         <!-- ╔═══════════════════════════════════════════════════════════════╗
              ║  PROJECT · Field-service platform                             ║
@@ -446,9 +371,16 @@
                  Add or remove a photo = add or remove one <img> line below. -->
             <!--[edit:fieldservice-gallery]-->
             <div class="gallery">
-              <img src="img/seed/tiles-01.jpg" loading="lazy"
-                   alt="A placeholder for a field-service platform image."
-                   data-caption="Field-service platform (placeholder image)" />
+              <img src="img/work/relay-calendar-9lcasz.jpg" loading="lazy"
+                   srcset="img/work/relay-calendar-9lcasz_sd.webp 480w, img/work/relay-calendar-9lcasz.jpg 1905w"
+                   sizes="(max-width: 880px) 84vw, (max-width: 1180px) 48vw, 562px"
+                   width="1905"
+                   height="1035"
+                   alt="relay calendar"
+                   data-sd="img/work/relay-calendar-9lcasz_sd.webp"
+                   data-original="img/work/relay-calendar-9lcasz_original.png"
+                   data-original-size="1905x1035"
+                   data-original-bytes="1041016" />
             </div>
             <!--[/edit:fieldservice-gallery]-->
 
@@ -476,11 +408,7 @@
 
             <!-- OPTIONAL · stats · empty = auto-hidden -->
             <!--[edit:fieldservice-stats]-->
-            <div class="stats">
-              <span class="stat"><b>~66%</b> more service revenue</span>
-              <span class="stat"><b>~$1.5M</b> in added revenue</span>
-              <span class="stat"><b>~$300K</b> a year in saved labor</span>
-            </div>
+            <div class="stats"></div>
             <!--[/edit:fieldservice-stats]-->
 
             <!-- OPTIONAL · highlights · empty = auto-hidden -->
@@ -506,74 +434,6 @@
         <!-- ╚═══════════════ END · Field-service platform ═══════════════╝ -->
         <!--[/item:fieldservice]-->
 
-        <!--[item:retro]-->
-        <!-- ╔═══════════════════════════════════════════════════════════════╗
-             ║  PROJECT · Reverse engineering                                ║
-             ╚═══════════════════════════════════════════════════════════════╝ -->
-        <article class="project">
-          <div class="project__media reveal">
-
-            <!-- GALLERY · one <img> per photo (src, alt, optional data-caption).
-                 Add or remove a photo = add or remove one <img> line below. -->
-            <!--[edit:retro-gallery]-->
-            <div class="gallery">
-              <img src="img/seed/media-01.jpg" loading="lazy"
-                   alt="A placeholder for a reverse engineering image."
-                   data-caption="Reverse engineering (placeholder image)" />
-            </div>
-            <!--[/edit:retro-gallery]-->
-
-          </div>
-          <div class="project__body reveal d1">
-
-            <!-- NUMBER · automatic (01, 02…) · leave this span empty -->
-            <span class="project__index"></span>
-
-            <!--[edit:retro-title]-->
-            <h3 class="project__title">Reverse engineering</h3>
-            <!--[/edit:retro-title]-->
-
-            <!--[edit:retro-meta]-->
-            <p class="project__meta">Personal projects</p>
-            <!--[/edit:retro-meta]-->
-
-            <!--[edit:retro-lead]-->
-            <p class="project__lead">Taking old systems apart until they make sense, then building new things inside them.</p>
-            <!--[/edit:retro-lead]-->
-
-            <!--[edit:retro-desc]-->
-            <p class="project__desc">I built 6502 compression and decompression tools for two games, and a modding tool for graphics, palettes and 65816 assembly. The modding tool produced a build of Teenage Mutant Ninja Turtles: Tournament Fighters for statewide tournaments.</p>
-            <!--[/edit:retro-desc]-->
-
-            <!-- OPTIONAL · stats · empty = auto-hidden -->
-            <!--[edit:retro-stats]-->
-            <div class="stats"></div>
-            <!--[/edit:retro-stats]-->
-
-            <!-- OPTIONAL · highlights · empty = auto-hidden -->
-            <!--[edit:retro-highlights]-->
-            <ul class="highlights">
-              <li>An unofficial map editor for Warcraft I: Remastered, in 2024.</li>
-              <li>In development: Venus: The Fusion Frontier, a simulation game that runs on the 6502.</li>
-              <li>Code for an open-source online JavaScript and TypeScript game, from 2014 to 2020.</li>
-            </ul>
-            <!--[/edit:retro-highlights]-->
-
-            <!-- SPECS · the engine's form names these two Role and Stack -->
-            <div class="specs">
-              <!--[edit:retro-spec-role]-->
-              <div class="spec"><dt>Role</dt><dd>Developer</dd></div>
-              <!--[/edit:retro-spec-role]-->
-              <!--[edit:retro-spec-stack]-->
-              <div class="spec"><dt>Stack</dt><dd><span class="chips"><span class="chip">6502</span><span class="chip">65816</span><span class="chip">Assembly</span><span class="chip">Data compression</span></span></dd></div>
-              <!--[/edit:retro-spec-stack]-->
-            </div>
-
-          </div>
-        </article>
-        <!-- ╚═══════════════ END · Reverse engineering ═══════════════╝ -->
-        <!--[/item:retro]-->
-
         <!--[item:relay]-->
         <!-- ╔═══════════════════════════════════════════════════════════════╗
              ║  PROJECT · Relay and RelayPing                                ║
@@ -585,16 +445,9 @@
                  Add or remove a photo = add or remove one <img> line below. -->
             <!--[edit:relay-gallery]-->
             <div class="gallery">
-              <img src="img/work/relay-program-iczie3.jpg" loading="lazy"
-                   srcset="img/work/relay-program-iczie3_sd.webp 480w, img/work/relay-program-iczie3.jpg 1536w"
-                   sizes="(max-width: 880px) 84vw, (max-width: 1180px) 48vw, 562px"
-                   width="1536"
-                   height="1024"
-                   alt="relay program"
-                   data-sd="img/work/relay-program-iczie3_sd.webp"
-                   data-original="img/work/relay-program-iczie3_original.png"
-                   data-original-size="1536x1024"
-                   data-original-bytes="1142060" />
+              <img src="img/seed/posts-01.jpg" loading="lazy"
+                   alt="A placeholder for a Relay image."
+                   data-caption="Relay and RelayPing (placeholder image)" />
             </div>
             <!--[/edit:relay-gallery]-->
 
@@ -647,6 +500,81 @@
         <!-- ╚═══════════════ END · Relay and RelayPing ═══════════════╝ -->
         <!--[/item:relay]-->
 
+        <!--[item:retro]-->
+        <!-- ╔═══════════════════════════════════════════════════════════════╗
+             ║  PROJECT · Reverse engineering                                ║
+             ╚═══════════════════════════════════════════════════════════════╝ -->
+        <article class="project">
+          <div class="project__media reveal">
+
+            <!-- GALLERY · one <img> per photo (src, alt, optional data-caption).
+                 Add or remove a photo = add or remove one <img> line below. -->
+            <!--[edit:retro-gallery]-->
+            <div class="gallery">
+              <img src="img/work/retro-console-homebrew-c7a1b5.jpg" loading="lazy"
+                   srcset="img/work/retro-console-homebrew-c7a1b5_sd.webp 480w, img/work/retro-console-homebrew-c7a1b5.jpg 1600w"
+                   sizes="(max-width: 880px) 84vw, (max-width: 1180px) 48vw, 562px"
+                   width="1600"
+                   height="829"
+                   alt="retro console homebrew"
+                   data-sd="img/work/retro-console-homebrew-c7a1b5_sd.webp"
+                   data-original="img/work/retro-console-homebrew-c7a1b5_original.png"
+                   data-original-size="1600x829"
+                   data-original-bytes="1100730" />
+            </div>
+            <!--[/edit:retro-gallery]-->
+
+          </div>
+          <div class="project__body reveal d1">
+
+            <!-- NUMBER · automatic (01, 02…) · leave this span empty -->
+            <span class="project__index"></span>
+
+            <!--[edit:retro-title]-->
+            <h3 class="project__title">Retro Hardware Homebrew</h3>
+            <!--[/edit:retro-title]-->
+
+            <!--[edit:retro-meta]-->
+            <p class="project__meta">Personal projects</p>
+            <!--[/edit:retro-meta]-->
+
+            <!--[edit:retro-lead]-->
+            <p class="project__lead">Reverse engineering old software &amp; hardware, then rebuilding and upgrading them.</p>
+            <!--[/edit:retro-lead]-->
+
+            <!--[edit:retro-desc]-->
+            <p class="project__desc">I have built compression and decompression tools for 6502 and 65816 software, and a modding tool for graphics, palettes and 65816 assembly. Currently, my primary personal project is developing for the SFX-100, the SNES CD prototype also known as the "Nintendo PlayStation".</p>
+            <!--[/edit:retro-desc]-->
+
+            <!-- OPTIONAL · stats · empty = auto-hidden -->
+            <!--[edit:retro-stats]-->
+            <div class="stats"></div>
+            <!--[/edit:retro-stats]-->
+
+            <!-- OPTIONAL · highlights · empty = auto-hidden -->
+            <!--[edit:retro-highlights]-->
+            <ul class="highlights">
+              <li>An unofficial map editor for Warcraft I.</li>
+              <li>Custom TMNT: Tournament Fighters build for state-wide tournaments.</li>
+              <li>In development: IDE, clean room BIOS &amp; programs for SNES CD.</li>
+            </ul>
+            <!--[/edit:retro-highlights]-->
+
+            <!-- SPECS · the engine's form names these two Role and Stack -->
+            <div class="specs">
+              <!--[edit:retro-spec-role]-->
+              <div class="spec"><dt>Role</dt><dd>Developer</dd></div>
+              <!--[/edit:retro-spec-role]-->
+              <!--[edit:retro-spec-stack]-->
+              <div class="spec"><dt>Stack</dt><dd><span class="chips"><span class="chip">6502</span><span class="chip">65816</span><span class="chip">x86</span><span class="chip">Assembly</span><span class="chip">Data compression</span></span></dd></div>
+              <!--[/edit:retro-spec-stack]-->
+            </div>
+
+          </div>
+        </article>
+        <!-- ╚═══════════════ END · Reverse engineering ═══════════════╝ -->
+        <!--[/item:retro]-->
+
         <!--[item:blockade]-->
         <!-- ╔═══════════════════════════════════════════════════════════════╗
              ║  PROJECT · Blockade Runner                                    ║
@@ -658,16 +586,9 @@
                  Add or remove a photo = add or remove one <img> line below. -->
             <!--[edit:blockade-gallery]-->
             <div class="gallery">
-              <img src="img/work/blockade-runner-lmct5n.jpg" loading="lazy"
-                   srcset="img/work/blockade-runner-lmct5n_sd.webp 480w, img/work/blockade-runner-lmct5n.jpg 1600w"
-                   sizes="(max-width: 880px) 84vw, (max-width: 1180px) 48vw, 562px"
-                   width="1600"
-                   height="900"
-                   alt="blockade runner"
-                   data-sd="img/work/blockade-runner-lmct5n_sd.webp"
-                   data-original="img/work/blockade-runner-lmct5n_original.png"
-                   data-original-size="1600x900"
-                   data-original-bytes="3004684" />
+              <img src="img/seed/photo-01.jpg" loading="lazy"
+                   alt="A placeholder for a Blockade Runner image."
+                   data-caption="Blockade Runner (placeholder image)" />
             </div>
             <!--[/edit:blockade-gallery]-->
 
