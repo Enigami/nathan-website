@@ -196,6 +196,25 @@
         </div>
         <!--[edit:blog-stream]-->
         <div class="bs-stream" id="blogStream" data-ced="generated">
+          <article class="bs-post" id="s0004" data-id="0004" data-date="261023" data-time="2204" data-zone="EDT" data-tags="SNES CD Imagine BIOS">
+            <header class="bs-post__by">
+              <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
+              <b>NATHANIEL HARRIS</b>
+              <a class="bs-post__when" href="blog/2610.html?post=p0004#p0004"><time datetime="2026-10-23T22:04">October 23, 2026 · 10:04 pm</time><span class="bs-post__zone">EDT</span></a>
+            </header>
+            <h3 class="bs-post__title"><a href="blog/2610.html?post=p0004#p0004">Day 3: Making a CD spin</a></h3>
+            <div class="bs-post__body">
+<p>I made some progress on the visual side of the custom SNES CD / Nintendo PlayStation BIOS. Using the famous Mode 7, I can easily have a CD graphic move across the screen and rotate as part of loading animations among other things. No text or other UI just yet, but those will be coming soon.</p>
+<div class="gallery"><figure class="bp-media" data-kind="video" data-caption="BIOS CD Animation"><video controls preload="none" playsinline width="1006" height="940" aria-label="BIOS CD Animation"><source src="blog/261023_media0006.webm" type="video/webm" /></video><figcaption class="bp-media__cap">BIOS CD Animation</figcaption><a class="bp-media__file" href="blog/261023_media0006.webm" download="CD Spin.webm" type="video/webm">Download CD Spin.webm (948 KB)</a></figure></div>
+<h3>Wii Disc Channel</h3>
+<div class="gallery"><img src="blog/261023_img0008.jpg" srcset="blog/261023_img0008_sd.webp 480w, blog/261023_img0008.jpg 655w" sizes="(max-width: 700px) 80vw, 520px" width="655" height="366" data-sd="blog/261023_img0008_sd.webp" data-original="blog/261023_img0008_original.png" data-original-size="655x366" data-original-bytes="164114" loading="lazy" alt="Blog image 0008" /></div>
+<p>The visible disc on the UI is partly inspired by the Wii Disc Channel. In the future, if my BIOS detects a custom "label side" bitmap, the BIOS will load the provided bitmap in place of the "data side" bitmap.</p>
+<h3>Sony's SuperDisc BIOS</h3>
+<div class="gallery"><img src="blog/261023_img0007.jpg" srcset="blog/261023_img0007_sd.webp 480w, blog/261023_img0007.jpg 583w" sizes="(max-width: 700px) 80vw, 520px" width="583" height="445" data-sd="blog/261023_img0007_sd.webp" data-original="blog/261023_img0007_original.png" data-original-size="583x445" data-original-bytes="7666" loading="lazy" alt="Blog image 0007" /></div>
+<p>The Nintendo PlayStation/SNES CD already has a prototype BIOS, but there's 3 reasons I am creating my own BIOS. First, the BIOS to my knowledge is not legal to distribute. Second, the prototype does not have a SuperFX chip and I want to have the option available due to it being a planned part of a finished SNES CD. Third, I want the BIOS to be able to detect whether the CD-ROM drive is present, and if not, check for alternatives like MSU-1. When one of the BIOS functions are called, the BIOS will select functions based on what it detected on start up. This way, my BIOS will be able to run on the original Nintendo PlayStation prototype, existing hardware like the SD2SNES which has MSU-1 to emulate the CD-ROM as close as it can, and potentially even interface with much more common CD hardware to make physical recreations of the Nintendo PlayStation prototype easier to source parts for.</p>
+            </div>
+            <div class="bs-post__tags"><a href="blog.html?t=SNES">#SNES</a> <a href="blog.html?t=CD">#CD</a> <a href="blog.html?t=Imagine">#Imagine</a> <a href="blog.html?t=BIOS">#BIOS</a></div>
+          </article>
           <article class="bs-post" id="s0003" data-id="0003" data-date="261022" data-time="2115" data-zone="EDT" data-tags="">
             <header class="bs-post__by">
               <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
@@ -352,10 +371,10 @@
        data-ced="blog" keeps the editor from treating it as copy. -->
   <!--[edit:blog-manifest]-->
   <script id="blogManifest" type="text/plain" data-ced="blog">
-next-post:0004
-stamp:h44zjs
-month:2610=x1hoa9
-2610190002Day 1: Homebrew on the SNES CD|2610220003Day 2: Tall Walls
+next-post:0005
+stamp:6uotu1
+month:2610=0ochg4
+2610190002Day 1: Homebrew on the SNES CD|2610220003Day 2: Tall Walls|2610230004Day 3: Making a CD spin
 </script>
   <!--[/edit:blog-manifest]-->
 
