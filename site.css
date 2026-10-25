@@ -759,10 +759,14 @@ body.nav-open { overflow: hidden; }
 
   .spec { grid-template-columns: 72px 1fr; gap: .7rem; }
 
-  /* keep the three contact buttons on a single row on phones */
-  .contact__row { flex-wrap: nowrap; gap: .55rem; width: 100%; }
+  /* the four contact buttons in two rows of two on phones;
+     one row of four is too narrow for "LinkedIn" and "Harris XR" */
+  .contact__row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: .55rem;
+    width: 100%; max-width: 26rem;
+  }
   .contact__row .contact-btn {
-    flex: 1 1 0; min-width: 0; padding: .8rem .6rem; gap: .4rem;
+    min-width: 0; padding: .8rem .6rem; gap: .4rem;
     font-size: .9rem;
   }
 }
@@ -775,7 +779,7 @@ body.nav-open { overflow: hidden; }
   .site-header.scrolled .brand__sub { font-size: .58rem; }
   .brand .mark { width: 28px; height: 28px; }
 
-  /* shrink the contact buttons a touch more so 3 still fit */
+  /* shrink the contact buttons a touch more on very narrow phones */
   .contact__row { gap: .4rem; }
   .contact__row .contact-btn { padding: .75rem .35rem; font-size: .82rem; gap: .32rem; }
   .contact__row .contact-btn svg { width: 16px; height: 16px; }

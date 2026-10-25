@@ -50,6 +50,6 @@ AMH.config = {
   sharedSlugs: ["brand-title", "brand-sub", "nav-work", "nav-gallery", "nav-blog", "nav-about",
     "nav-contact", "about-eyebrow", "about-lede", "about-p1", "about-p2", "about-p3",
     "about-place", "about-link", "contact-eyebrow", "contact-h2", "contact-email",
-    "contact-btn-email", "contact-btn-linkedin", "contact-btn-site", "endbar"],
+    "contact-btn-email", "contact-btn-linkedin", "contact-btn-x", "contact-btn-site", "endbar"],
   blog: true
 };
