@@ -196,6 +196,21 @@
         </div>
         <!--[edit:blog-stream]-->
         <div class="bs-stream" id="blogStream" data-ced="generated">
+          <article class="bs-post" id="s0006" data-id="0006" data-date="261025" data-time="0017" data-zone="EDT" data-tags="">
+            <header class="bs-post__by">
+              <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
+              <b>NATHANIEL HARRIS</b>
+              <a class="bs-post__when" href="blog/2610.html?post=p0006#p0006"><time datetime="2026-10-25T00:17">October 25, 2026 · 12:17 am</time><span class="bs-post__zone">EDT</span></a>
+            </header>
+            <h3 class="bs-post__title"><a href="blog/2610.html?post=p0006#p0006">Day 5: Generating a CD image</a></h3>
+            <div class="bs-post__body">
+<div class="gallery" data-shape="landscape"><img src="blog/261019_img0001.jpg" srcset="blog/261019_img0001_sd.webp 466w, blog/261019_img0001.jpg 1021w" sizes="(max-width: 700px) 80vw, 520px" width="1021" height="1052" data-sd="blog/261019_img0001_sd.webp" data-original="blog/261019_img0001_original.png" data-original-size="1021x1052" data-original-bytes="39877" loading="lazy" alt="alt" data-caption="caption" /></div>
+<p>A 128x128 Mode 7 image takes up 32 kilobytes. That's a decent chunk of a SNES cartridge, which could be as low as 256 kilobytes. But the data side of a CD is mostly a circle with a gradient, I realized you could massively cut down on the size by generating it on the SNES itself. I can use the distance of the pixel from the center to create the CD shape, and the angle of the pixel from the center to select the color. For about 400ish bytes of code + a couple kilobytes worth of math tables, we get a 32 kilobyte image for a fraction of the size that comes with useful tables that can be reused elsewhere. There's actually a bug when I programmed this where on alternating columns, the selected index actually ends up slightly offset incorrectly leading to the sort of vertical bar effect on the CD, but I liked how it looked and decided to keep it.</p>
+<span class="bp-cut" data-cut="hard"></span>
+<div class="gallery"><img src="blog/261025_img0012.jpg" srcset="blog/261025_img0012_sd.webp 480w, blog/261025_img0012.jpg 797w" sizes="(max-width: 700px) 80vw, 520px" width="797" height="641" data-sd="blog/261025_img0012_sd.webp" data-original="blog/261025_img0012_original.png" data-original-size="797x641" data-original-bytes="25929" loading="lazy" alt="alt" data-caption="caption" /></div>
+<p>The palette itself is also generate on the SNES. My function takes 17 colors as input, then generates color values between each input to create a full gradient. A full SNES palette is only 512 bytes, but I wanted to do it and it was fun to make.</p>
+            </div>
+          </article>
           <article class="bs-post" id="s0005" data-id="0005" data-date="261024" data-time="1402" data-zone="EDT" data-tags="">
             <header class="bs-post__by">
               <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
@@ -399,10 +414,10 @@
        data-ced="blog" keeps the editor from treating it as copy. -->
   <!--[edit:blog-manifest]-->
   <script id="blogManifest" type="text/plain" data-ced="blog">
-next-post:0006
-stamp:8h30gl
-month:2610=gsrjsx
-2610190002Day 1: Homebrew on the SNES CD|2610220003Day 2: Tall Walls|2610230004Day 3: Making a CD spin|2610240005Day 4: The Mode 7 Framebuffer
+next-post:0007
+stamp:0ww125
+month:2610=3i8660
+2610190002Day 1: Homebrew on the SNES CD|2610220003Day 2: Tall Walls|2610230004Day 3: Making a CD spin|2610240005Day 4: The Mode 7 Framebuffer|2610250006Day 5: Generating a CD image
 </script>
   <!--[/edit:blog-manifest]-->
 
