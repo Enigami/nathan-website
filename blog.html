@@ -196,6 +196,22 @@
         </div>
         <!--[edit:blog-stream]-->
         <div class="bs-stream" id="blogStream" data-ced="generated">
+          <article class="bs-post" id="s0007" data-id="0007" data-date="261027" data-time="1530" data-zone="EDT" data-tags="SNESCD NintendoPlaystation ImagineBIOS Graphics Development HDMA">
+            <header class="bs-post__by">
+              <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
+              <b>NATHANIEL HARRIS</b>
+              <a class="bs-post__when" href="blog/2610.html?post=p0007#p0007"><time datetime="2026-10-27T15:30">October 27, 2026 · 3:30 pm</time><span class="bs-post__zone">EDT</span></a>
+            </header>
+            <h3 class="bs-post__title"><a href="blog/2610.html?post=p0007#p0007">Day 6: HDMA for the BIOS</a></h3>
+            <div class="bs-post__body">
+<p>The design for the BIOS menus is coming along, now comes the work to actually implement it. One thing I wanted to change was the black background, reducing the CD graphic's palette usage down to 128 colors to make room for sprites for the user interface, and ensuring the CD graphic no longer uses the background color index so it can be modified without affecting the image. A limitation with Mode 7 is that you can't have any background layers on the same scanlines as the Mode 7 graphic, but by using a hardware feature called HDMA, you can modify the background color at specific scanlines to create a gradient effect. Many games with transparent Mode 7 graphics make use of this simple trick to make the background more than just a solid color.</p>
+<div class="gallery"><img src="blog/261027_img0013_original.png" width="256" height="239" data-uhd="1" data-hd="blog/261027_img0013.jpg" data-truesize="1" data-sd="blog/261027_img0013_sd.webp" data-original="blog/261027_img0013_original.png" data-original-size="256x239" data-original-bytes="6152" loading="lazy" alt="CD with HDMA" data-caption="CD with HDMA" /></div>
+<span class="bp-cut" data-cut="hard"></span>
+<p>I have used this technique previously in my raycast engine for the ground and sky visuals.</p>
+<div class="gallery"><img src="blog/261019_img0002.jpg" srcset="blog/261019_img0002_sd.webp 465w, blog/261019_img0002.jpg 1026w" sizes="(max-width: 700px) 80vw, 520px" width="1026" height="1059" data-sd="blog/261019_img0002_sd.webp" data-original="blog/261019_img0002_original.png" data-original-size="1026x1059" data-original-bytes="86602" loading="lazy" alt="Raycast Game" data-caption="Raycast Game" /></div>
+            </div>
+            <div class="bs-post__tags"><a href="blog.html?t=SNESCD">#SNESCD</a> <a href="blog.html?t=NintendoPlaystation">#NintendoPlaystation</a> <a href="blog.html?t=ImagineBIOS">#ImagineBIOS</a> <a href="blog.html?t=Graphics">#Graphics</a> <a href="blog.html?t=Development">#Development</a> <a href="blog.html?t=HDMA">#HDMA</a></div>
+          </article>
           <article class="bs-post" id="s0006" data-id="0006" data-date="261025" data-time="0017" data-zone="EDT" data-tags="SNESCD NintendoPlaystation ImagineBIOS Graphics Development">
             <header class="bs-post__by">
               <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
@@ -418,10 +434,10 @@
        data-ced="blog" keeps the editor from treating it as copy. -->
   <!--[edit:blog-manifest]-->
   <script id="blogManifest" type="text/plain" data-ced="blog">
-next-post:0007
-stamp:6fo1zk
-month:2610=byd9nv
-2610190002Day 1: Homebrew on the SNES CD|2610220003Day 2: Tall Walls|2610230004Day 3: Making a CD spin|2610240005Day 4: The Mode 7 Framebuffer|2610250006Day 5: Generating a CD image
+next-post:0008
+stamp:evrmpx
+month:2610=klop8p
+2610190002Day 1: Homebrew on the SNES CD|2610220003Day 2: Tall Walls|2610230004Day 3: Making a CD spin|2610240005Day 4: The Mode 7 Framebuffer|2610250006Day 5: Generating a CD image|2610270007Day 6: HDMA for the BIOS
 </script>
   <!--[/edit:blog-manifest]-->
 
