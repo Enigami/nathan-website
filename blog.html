@@ -185,7 +185,7 @@
         <!-- The heading names the month the stream is showing. The publish
              writes it, so it cannot disagree with the stream under it. -->
         <!--[edit:blog-h2]-->
-        <h2 class="bm-top__month" data-ced="generated">October 2026</h2>
+        <h2 class="bm-top__month" data-ced="generated">November 2026</h2>
         <!--[/edit:blog-h2]-->
         <!-- The rail and the bar are authored chrome and carry no markers:
              every slot is filled by blog.js. -->
@@ -196,174 +196,20 @@
         </div>
         <!--[edit:blog-stream]-->
         <div class="bs-stream" id="blogStream" data-ced="generated">
-          <article class="bs-post" id="s0010" data-id="0010" data-date="261030" data-time="0907" data-zone="EDT" data-tags="SNESCD NintendoPlaystation ImagineBIOS SuperFX Development">
+          <article class="bs-post" id="s0011" data-id="0011" data-date="261101" data-time="2334" data-zone="EST" data-tags="SNESCD NintendoPlaystation ImagineBIOS SuperFX Development">
             <header class="bs-post__by">
               <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
               <b>NATHANIEL HARRIS</b>
-              <a class="bs-post__when" href="blog/2610.html?post=p0010#p0010"><time datetime="2026-10-30T09:07">October 30, 2026 · 9:07 am</time><span class="bs-post__zone">EDT</span></a>
+              <a class="bs-post__when" href="blog/2611.html?post=p0011#p0011"><time datetime="2026-11-01T23:34">November 1, 2026 · 11:34 pm</time><span class="bs-post__zone">EST</span></a>
             </header>
-            <h3 class="bs-post__title"><a href="blog/2610.html?post=p0010#p0010">Day 9: Now we're playing with power. SUPER POWER</a></h3>
+            <h3 class="bs-post__title"><a href="blog/2611.html?post=p0011#p0011">Day 11: Reinventing the Font</a></h3>
             <div class="bs-post__body">
-<div class="gallery"><img src="blog/261030_img0016_original.png" width="250" height="178" data-uhd="1" data-hd="blog/261030_img0016.jpg" data-truesize="1" data-sd="blog/261030_img0016_sd.webp" data-original="blog/261030_img0016_original.png" data-original-size="250x178" data-original-bytes="121058" loading="lazy" alt="Super FX" data-caption="Super FX" /></div>
-<p>One major difference between my BIOS and Sony's prototype BIOS will be adding support for the Super FX chip featured in games like Star Fox and Yoshi's Island. <a href="https://www.nintendolife.com/news/2019/11/the_snes_playstation_was_going_to_have_a_super_fx_chip_built-in" rel="noopener">Jez San from Argonaut Software explained in an interview that there were plans for the Nintendo PlayStation to include the Super FX chip.</a> A future iteration of the prototype could have included the chip and I'm developing my BIOS as if those plans had gone through.</p>
-<span class="bp-cut" data-cut="hard"></span>
-<p>There doesn't seem to be any conflicting registers or memory mapping so it does look like Sony's engineers had the Super FX in mind. Since the Nintendo PlayStation's BIOS is an inserted cartridge, it should be possible to include the Super FX (either donor or FPGA) on a physical cartridge for my BIOS and be fully functional on the real hardware. Developers wouldn't have to use it if they wanted compatibility with the original prototype's BIOS, and my own game is planned to use the Super FX as an optional accelerator to improve graphics and frame rate but otherwise still function with the original prototype's BIOS.</p>
+<p>Something I hadn't yet set up but needs to be done: displaying text. An easy task, but first I needed to make some graphics for them. I've made a couple variations, a blocky style like in old 8-bit systems, and a more natural look. There's a couple ways to go about displaying text on old tile-based hardware. Either you make every character in a font its own tile and take up a fixed size, in this case 8x8 pixels, or you rasterize text to tiles which you need to do if you want variable width font and kerning. For now, I'm going with simple tile based text.</p>
+<div class="gallery"><img src="blog/261101_img0017_original.png" width="143" height="89" data-uhd="1" data-hd="blog/261101_img0017.jpg" data-truesize="1" data-crisp="1" data-sd="blog/261101_img0017_sd.webp" data-original="blog/261101_img0017_original.png" data-original-size="143x89" data-original-bytes="2846" loading="lazy" alt="Blog image 0017" /></div>
             </div>
             <div class="bs-post__tags"><a href="blog.html?t=SNESCD">#SNESCD</a> <a href="blog.html?t=NintendoPlaystation">#NintendoPlaystation</a> <a href="blog.html?t=ImagineBIOS">#ImagineBIOS</a> <a href="blog.html?t=SuperFX">#SuperFX</a> <a href="blog.html?t=Development">#Development</a></div>
           </article>
-          <article class="bs-post" id="s0009" data-id="0009" data-date="261029" data-time="1329" data-zone="EDT" data-tags="SNESCD NintendoPlaystation SuperDiscBIOS">
-            <header class="bs-post__by">
-              <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
-              <b>NATHANIEL HARRIS</b>
-              <a class="bs-post__when" href="blog/2610.html?post=p0009#p0009"><time datetime="2026-10-29T13:29">October 29, 2026 · 1:29 pm</time><span class="bs-post__zone">EDT</span></a>
-            </header>
-            <h3 class="bs-post__title"><a href="blog/2610.html?post=p0009#p0009">Day 8: SuperDisc Self Check</a></h3>
-            <div class="bs-post__body">
-<div class="gallery"><figure class="bp-media" data-kind="video" data-caption="SuperDisc Self Check program"><video controls preload="none" playsinline width="578" height="444" aria-label="SuperDisc Self Check program"><source src="blog/261029_media0015.webm" type="video/webm" /></video><figcaption class="bp-media__cap">SuperDisc Self Check program</figcaption><a class="bp-media__file" href="blog/261029_media0015.webm" download="SuperDisc BIOS Self Check.webm" type="video/webm">Download SuperDisc BIOS Self Check.webm (317 KB)</a></figure></div>
-<p>One feature included with the SuperDisc's BIOS is Self Check, which makes sure the system's various components are working correctly. My current priority for my BIOS is to create a similar self diagnostic program to make sure my BIOS is truly functional.</p>
-<span class="bp-cut" data-cut="hard"></span>
-<p>This will be especially important for tests on no$sns, on SD2SNES to test my MSU-1 fallback if the SuperDisc Mechacon is not detected, and hopefully in the future, on the actual physical Nintendo PlayStation itself.</p>
-            </div>
-            <div class="bs-post__tags"><a href="blog.html?t=SNESCD">#SNESCD</a> <a href="blog.html?t=NintendoPlaystation">#NintendoPlaystation</a> <a href="blog.html?t=SuperDiscBIOS">#SuperDiscBIOS</a></div>
-          </article>
-          <article class="bs-post" id="s0008" data-id="0008" data-date="261028" data-time="1215" data-zone="EDT" data-tags="SNESCD NintendoPlaystation ImagineBIOS Graphics Development">
-            <header class="bs-post__by">
-              <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
-              <b>NATHANIEL HARRIS</b>
-              <a class="bs-post__when" href="blog/2610.html?post=p0008#p0008"><time datetime="2026-10-28T12:15">October 28, 2026 · 12:15 pm</time><span class="bs-post__zone">EDT</span></a>
-            </header>
-            <h3 class="bs-post__title"><a href="blog/2610.html?post=p0008#p0008">Day 7: Of Mice and Menu Buttons</a></h3>
-            <div class="bs-post__body">
-<p>More progress on the BIOS. Nothing functional just yet, but my rough draft UI graphics are loaded and I reused some old code I had  from a different project for mouse controls so you can navigate the BIOS with either a controller or mouse when the UI has actual functions. When finished, PLAY will run the program on the inserted disc, SAVES will let you manage save memory, and SYSTEM will go to a sub menu for any other features.</p>
-<div class="gallery"><img src="blog/261028_img0014_original.png" width="256" height="240" data-uhd="1" data-hd="blog/261028_img0014.jpg" data-truesize="1" data-sd="blog/261028_img0014_sd.webp" data-original="blog/261028_img0014_original.png" data-original-size="256x240" data-original-bytes="9451" loading="lazy" alt="CD BIOS with menu buttons, a mouse and a logo" data-caption="CD BIOS with menu buttons, a mouse and a logo" /></div>
-<span class="bp-cut" data-cut="hard"></span>
-<p>I'll try to include support for other SNES peripherals like the Super Scope, but I don't currently have those to test on real hardware. The layout is likely to stay, but expect the graphics to be refined in the near future!</p>
-            </div>
-            <div class="bs-post__tags"><a href="blog.html?t=SNESCD">#SNESCD</a> <a href="blog.html?t=NintendoPlaystation">#NintendoPlaystation</a> <a href="blog.html?t=ImagineBIOS">#ImagineBIOS</a> <a href="blog.html?t=Graphics">#Graphics</a> <a href="blog.html?t=Development">#Development</a></div>
-          </article>
-          <article class="bs-post" id="s0007" data-id="0007" data-date="261027" data-time="1530" data-zone="EDT" data-tags="SNESCD NintendoPlaystation ImagineBIOS Graphics Development HDMA">
-            <header class="bs-post__by">
-              <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
-              <b>NATHANIEL HARRIS</b>
-              <a class="bs-post__when" href="blog/2610.html?post=p0007#p0007"><time datetime="2026-10-27T15:30">October 27, 2026 · 3:30 pm</time><span class="bs-post__zone">EDT</span></a>
-            </header>
-            <h3 class="bs-post__title"><a href="blog/2610.html?post=p0007#p0007">Day 6: HDMA for the BIOS</a></h3>
-            <div class="bs-post__body">
-<p>The design for the BIOS menus is coming along, now comes the work to actually implement it. One thing I wanted to change was the black background, reducing the CD graphic's palette usage down to 128 colors to make room for sprites for the user interface, and ensuring the CD graphic no longer uses the background color index so it can be modified without affecting the image. A limitation with Mode 7 is that you can't have any background layers on the same scanlines as the Mode 7 graphic, but by using a hardware feature called HDMA, you can modify the background color at specific scanlines to create a gradient effect. Many games with transparent Mode 7 graphics make use of this simple trick to make the background more than just a solid color.</p>
-<div class="gallery"><img src="blog/261027_img0013_original.png" width="256" height="239" data-uhd="1" data-hd="blog/261027_img0013.jpg" data-truesize="1" data-sd="blog/261027_img0013_sd.webp" data-original="blog/261027_img0013_original.png" data-original-size="256x239" data-original-bytes="6152" loading="lazy" alt="CD with HDMA" data-caption="CD with HDMA" /></div>
-<span class="bp-cut" data-cut="hard"></span>
-<p>I have used this technique previously in my raycast engine for the ground and sky visuals.</p>
-<div class="gallery"><img src="blog/261019_img0002.jpg" srcset="blog/261019_img0002_sd.webp 465w, blog/261019_img0002.jpg 1026w" sizes="(max-width: 700px) 80vw, 520px" width="1026" height="1059" data-sd="blog/261019_img0002_sd.webp" data-original="blog/261019_img0002_original.png" data-original-size="1026x1059" data-original-bytes="86602" loading="lazy" alt="Raycast Game" data-caption="Raycast Game" /></div>
-            </div>
-            <div class="bs-post__tags"><a href="blog.html?t=SNESCD">#SNESCD</a> <a href="blog.html?t=NintendoPlaystation">#NintendoPlaystation</a> <a href="blog.html?t=ImagineBIOS">#ImagineBIOS</a> <a href="blog.html?t=Graphics">#Graphics</a> <a href="blog.html?t=Development">#Development</a> <a href="blog.html?t=HDMA">#HDMA</a></div>
-          </article>
-          <article class="bs-post" id="s0006" data-id="0006" data-date="261025" data-time="0017" data-zone="EDT" data-tags="SNESCD NintendoPlaystation ImagineBIOS Graphics Development">
-            <header class="bs-post__by">
-              <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
-              <b>NATHANIEL HARRIS</b>
-              <a class="bs-post__when" href="blog/2610.html?post=p0006#p0006"><time datetime="2026-10-25T00:17">October 25, 2026 · 12:17 am</time><span class="bs-post__zone">EDT</span></a>
-            </header>
-            <h3 class="bs-post__title"><a href="blog/2610.html?post=p0006#p0006">Day 5: Generating a CD image</a></h3>
-            <div class="bs-post__body">
-<div class="gallery" data-shape="landscape"><img src="blog/261019_img0001.jpg" srcset="blog/261019_img0001_sd.webp 466w, blog/261019_img0001.jpg 1021w" sizes="(max-width: 700px) 80vw, 520px" width="1021" height="1052" data-sd="blog/261019_img0001_sd.webp" data-original="blog/261019_img0001_original.png" data-original-size="1021x1052" data-original-bytes="39877" loading="lazy" alt="Generated CD image" data-caption="Generated CD image" /></div>
-<p>A 128x128 Mode 7 image takes up 32 kilobytes. That's a decent chunk of a SNES cartridge, which could be as small as 256 kilobytes. But the data side of a CD is mostly a circle with a gradient, I realized you could massively cut down on the size by generating it on the SNES itself. I used the distance of the pixel from the center to create the CD shape, and the angle of the pixel from the center to select the color. For about 400ish bytes of code + a couple kilobytes worth of math tables, we get a 32 kilobyte image for a fraction of the size that comes with useful tables that can be reused elsewhere. There's actually a bug when I programmed this where on alternating columns, the selected index actually ends up slightly offset incorrectly leading to the sort of vertical bar effect you see on the CD, but I liked how it looked and decided to keep it.</p>
-<span class="bp-cut" data-cut="hard"></span>
-<div class="gallery"><img src="blog/261025_img0012.jpg" srcset="blog/261025_img0012_sd.webp 480w, blog/261025_img0012.jpg 797w" sizes="(max-width: 700px) 80vw, 520px" width="797" height="641" data-sd="blog/261025_img0012_sd.webp" data-original="blog/261025_img0012_original.png" data-original-size="797x641" data-original-bytes="25929" loading="lazy" alt="Generated CD palette" data-caption="Generated CD palette" /></div>
-<p>The palette itself is also generated on the SNES. My function takes 17 colors as input, then generates color values between each input to create a full gradient. A full SNES palette is only 512 bytes, but I wanted to do it and it was fun to make.</p>
-            </div>
-            <div class="bs-post__tags"><a href="blog.html?t=SNESCD">#SNESCD</a> <a href="blog.html?t=NintendoPlaystation">#NintendoPlaystation</a> <a href="blog.html?t=ImagineBIOS">#ImagineBIOS</a> <a href="blog.html?t=Graphics">#Graphics</a> <a href="blog.html?t=Development">#Development</a></div>
-          </article>
-          <article class="bs-post" id="s0005" data-id="0005" data-date="261024" data-time="1402" data-zone="EDT" data-tags="SNESCD NintendoPlaystation ImagineBIOS Graphics Development">
-            <header class="bs-post__by">
-              <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
-              <b>NATHANIEL HARRIS</b>
-              <a class="bs-post__when" href="blog/2610.html?post=p0005#p0005"><time datetime="2026-10-24T14:02">October 24, 2026 · 2:02 pm</time><span class="bs-post__zone">EDT</span></a>
-            </header>
-            <h3 class="bs-post__title"><a href="blog/2610.html?post=p0005#p0005">Day 4: The Mode 7 Framebuffer</a></h3>
-            <div class="bs-post__body">
-<p>Aside from image rotation and scaling, there's a few other uses for Mode 7. The SNES does not have framebuffers, but you can use Mode 7 like a 128x128 pixel framebuffer and scale it to fill the screen.</p>
-<div class="gallery" data-shape="landscape"><img src="blog/261024_img0010.jpg" srcset="blog/261024_img0010_sd.webp 465w, blog/261024_img0010.jpg 1026w" sizes="(max-width: 700px) 80vw, 520px" width="1026" height="1059" data-sd="blog/261024_img0010_sd.webp" data-original="blog/261024_img0010_original.png" data-original-size="1026x1059" data-original-bytes="81361" loading="lazy" alt="Raycast Engine" data-caption="Raycast Engine" /></div>
-<span class="bp-cut" data-cut="hard"></span>
-<div class="gallery"><img src="blog/261024_img0011.jpg" srcset="blog/261024_img0011_sd.webp 480w, blog/261024_img0011.jpg 1397w" sizes="(max-width: 700px) 80vw, 520px" width="1397" height="1265" data-sd="blog/261024_img0011_sd.webp" data-original="blog/261024_img0011_original.png" data-original-size="1397x1265" data-original-bytes="112877" loading="lazy" alt="Raycast Engine - Tilemap Viewer" data-caption="Raycast Engine - Tilemap Viewer" /></div>
-<p>As shown by the tilemap viewer, the Mode 7 background is made of 128x128 tiles. These are made up of 8x8 tiles filled entirely with one color each. By zooming out such that the entire Mode 7 display area is in view, you end up with up to 128x112 pixels (or 128x120 on PAL consoles) of drawing area. While this does sacrifice resolution, you gain two advantages.</p>
-<p>First, you have less pixels overall that need to be filled in. This means less work for the SNES to finish drawing a frame, since it has about 1/4th the amount of pixels to work on if it were 256x224.</p>
-<p>Second, the SNES is designed with tiles in mind. These tiles are split up into bitplanes, and modifying a single pixel of a tile involves bit arithmetic across multiple bitplanes. Doing this for every single pixel every frame is going to result in a terrible framerate. Comparatively, modifying a pixel by simply swapping which solid color 8x8 Mode 7 tile is being used at that X/Y location is very intuitive and fast.</p>
-<p>These both help the SNES handle rendering a scene pixel by pixel with a decent framerate.</p>
-<div class="gallery"><img src="blog/261024_img0009.jpg" srcset="blog/261024_img0009_sd.webp 480w, blog/261024_img0009.jpg 1397w" sizes="(max-width: 700px) 80vw, 520px" width="1397" height="1265" data-sd="blog/261024_img0009_sd.webp" data-original="blog/261024_img0009_original.png" data-original-size="1397x1265" data-original-bytes="178990" loading="lazy" alt="BIOS CD Image - Tilemap Viewer" data-caption="BIOS CD Image - Tilemap Viewer" /></div>
-<p>The CD in my BIOS also is technically using a Mode 7 framebuffer as well, using solid color 8x8 tiles scaled down to 1/8th the size. At that scale, each tile displays as one pixel.</p>
-            </div>
-            <div class="bs-post__tags"><a href="blog.html?t=SNESCD">#SNESCD</a> <a href="blog.html?t=NintendoPlaystation">#NintendoPlaystation</a> <a href="blog.html?t=ImagineBIOS">#ImagineBIOS</a> <a href="blog.html?t=Graphics">#Graphics</a> <a href="blog.html?t=Development">#Development</a></div>
-          </article>
-          <article class="bs-post" id="s0004" data-id="0004" data-date="261023" data-time="2204" data-zone="EDT" data-tags="SNESCD NintendoPlaystation ImagineBIOS Graphics Development">
-            <header class="bs-post__by">
-              <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
-              <b>NATHANIEL HARRIS</b>
-              <a class="bs-post__when" href="blog/2610.html?post=p0004#p0004"><time datetime="2026-10-23T22:04">October 23, 2026 · 10:04 pm</time><span class="bs-post__zone">EDT</span></a>
-            </header>
-            <h3 class="bs-post__title"><a href="blog/2610.html?post=p0004#p0004">Day 3: Making a CD spin</a></h3>
-            <div class="bs-post__body">
-<p>I made some progress on the visual side of the custom SNES CD / Nintendo PlayStation BIOS. Using the famous Mode 7, I can easily have a CD graphic move across the screen and rotate as part of loading animations among other things. No text or other UI just yet, but those will be coming soon.</p>
-<div class="gallery"><figure class="bp-media" data-kind="video" data-caption="BIOS CD Animation"><video controls preload="none" playsinline width="1006" height="940" aria-label="BIOS CD Animation"><source src="blog/261023_media0006.webm" type="video/webm" /></video><figcaption class="bp-media__cap">BIOS CD Animation</figcaption><a class="bp-media__file" href="blog/261023_media0006.webm" download="CD Spin.webm" type="video/webm">Download CD Spin.webm (948 KB)</a></figure></div>
-<span class="bp-cut" data-cut="hard"></span>
-<h3>Wii Disc Channel</h3>
-<div class="gallery"><img src="blog/261023_img0008.jpg" srcset="blog/261023_img0008_sd.webp 480w, blog/261023_img0008.jpg 655w" sizes="(max-width: 700px) 80vw, 520px" width="655" height="366" data-sd="blog/261023_img0008_sd.webp" data-original="blog/261023_img0008_original.png" data-original-size="655x366" data-original-bytes="164114" loading="lazy" alt="Blog image 0008" /></div>
-<p>The visible disc on the UI is partly inspired by the Wii Disc Channel. In the future, if my BIOS detects a custom "label side" bitmap, the BIOS will load the provided bitmap in place of the "data side" bitmap.</p>
-<h3>Sony's SuperDisc BIOS</h3>
-<div class="gallery"><img src="blog/261023_img0007.jpg" srcset="blog/261023_img0007_sd.webp 480w, blog/261023_img0007.jpg 583w" sizes="(max-width: 700px) 80vw, 520px" width="583" height="445" data-sd="blog/261023_img0007_sd.webp" data-original="blog/261023_img0007_original.png" data-original-size="583x445" data-original-bytes="7666" loading="lazy" alt="Blog image 0007" /></div>
-<p>The Nintendo PlayStation/SNES CD already has a prototype BIOS, but there's 3 reasons I am creating my own BIOS. First, the BIOS to my knowledge is not legal to distribute. Second, the prototype does not have a SuperFX chip and I want to have the option available due to it being a planned part of a finished SNES CD. Third, I want the BIOS to be able to detect whether the CD-ROM drive is present, and if not, check for alternatives like MSU-1. When one of the BIOS functions are called, the BIOS will select functions based on what it detected on start up. This way, my BIOS will be able to run on the original Nintendo PlayStation prototype, existing hardware like the SD2SNES which has MSU-1 to emulate the CD-ROM as close as it can, and potentially even interface with much more common CD hardware to make physical recreations of the Nintendo PlayStation prototype easier to source parts for.</p>
-            </div>
-            <div class="bs-post__tags"><a href="blog.html?t=SNESCD">#SNESCD</a> <a href="blog.html?t=NintendoPlaystation">#NintendoPlaystation</a> <a href="blog.html?t=ImagineBIOS">#ImagineBIOS</a> <a href="blog.html?t=Graphics">#Graphics</a> <a href="blog.html?t=Development">#Development</a></div>
-          </article>
-          <article class="bs-post" id="s0003" data-id="0003" data-date="261022" data-time="2115" data-zone="EDT" data-tags="SNESCD NintendoPlaystation Graphics Development SavageHeart">
-            <header class="bs-post__by">
-              <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
-              <b>NATHANIEL HARRIS</b>
-              <a class="bs-post__when" href="blog/2610.html?post=p0003#p0003"><time datetime="2026-10-22T21:15">October 22, 2026 · 9:15 pm</time><span class="bs-post__zone">EDT</span></a>
-            </header>
-            <h3 class="bs-post__title"><a href="blog/2610.html?post=p0003#p0003">Day 2: Tall Walls</a></h3>
-            <div class="bs-post__body">
-<p>The game I'm working on utilizes the same raycasting method as old school first person shooters like Wolfenstein. The speed of raycasting compared to 3D rasterization makes these pseudo-3D environments achievable even on old consoles like a stock SNES.</p>
-<span class="bp-cut" data-cut="hard"></span>
-<div class="gallery"><img src="blog/261022_img0004_original.png" width="396" height="270" data-uhd="1" data-hd="blog/261022_img0004.jpg" data-truesize="1" data-sd="blog/261022_img0004_sd.webp" data-original="blog/261022_img0004_original.png" data-original-size="396x270" data-original-bytes="147505" loading="lazy" alt="Wolfenstein" data-caption="Wolfenstein" /></div>
-<p>One concern I had was the height of the walls. While well suited to indoor environments, I wanted to have outdoor environments like jungles featured, and the standard height of the walls didn't really give the impression of being in a jungle. I experimented with doubling the height of the walls for outdoor environments, and I think it gives the right feeling of being in a forest or jungle with the environment towering above you.</p>
-<div class="gallery"><img src="blog/261022_img0005_original.gif" width="1014" height="942" data-uhd="1" data-hd="blog/261022_img0005.jpg" data-truesize="1" data-sd="blog/261022_img0005_sd.webp" data-original="blog/261022_img0005_original.gif" data-original-size="1014x942" data-original-bytes="2591586" loading="lazy" alt="My Raycasting Engine" data-caption="My Raycasting Engine" /></div>
-            </div>
-            <div class="bs-post__tags"><a href="blog.html?t=SNESCD">#SNESCD</a> <a href="blog.html?t=NintendoPlaystation">#NintendoPlaystation</a> <a href="blog.html?t=Graphics">#Graphics</a> <a href="blog.html?t=Development">#Development</a> <a href="blog.html?t=SavageHeart">#SavageHeart</a></div>
-          </article>
-          <article class="bs-post" id="s0002" data-id="0002" data-date="261019" data-time="0100" data-zone="EDT" data-tags="SNESCD NintendoPlaystation ImagineBIOS">
-            <header class="bs-post__by">
-              <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
-              <b>NATHANIEL HARRIS</b>
-              <a class="bs-post__when" href="blog/2610.html?post=p0002#p0002"><time datetime="2026-10-19T01:00">October 19, 2026 · 1:00 am</time><span class="bs-post__zone">EDT</span></a>
-            </header>
-            <h3 class="bs-post__title"><a href="blog/2610.html?post=p0002#p0002">Day 1: Homebrew on the SNES CD</a></h3>
-            <div class="bs-post__body">
-<p>The SNES CD. Most people know it as the "Nintendo PlayStation" that never was. A few prototypes exist, and almost no software was ever written for it.</p>
-<p>A personal dream of mine for years has been to make homebrew games for it, and drawing on years of 65816 assembly and digging into the inner workings of SNES hardware, I'm working to turn this dream into reality.</p>
-<span class="bp-cut" data-cut="hard"></span>
-<h3>The SFX-100 "Nintendo PlayStation"</h3>
-<div class="gallery" data-shape="landscape"><img src="blog/261019_img0003.jpg" srcset="blog/261019_img0003_sd.webp 480w, blog/261019_img0003.jpg 597w" sizes="(max-width: 700px) 80vw, 520px" width="597" height="415" data-sd="blog/261019_img0003_sd.webp" data-original="blog/261019_img0003_original.png" data-original-size="597x415" data-original-bytes="349579" loading="lazy" alt="Blog image 0003" /></div>
-<p>In the late 80s, Nintendo worked with Sony on two projects. One was the sound chip for the Super Famicom (known in the west as the SNES). The other, starting development in 1988, was the PlayStation, a console that would be capable of running CD-based media while also retaining support for SNES cartridges. Licensing disagreements resulted in Nintendo breaking their partnership with Sony in 1991 and partnering with Philips to develop a CD-ROM add-on for the SNES instead. That project was ultimately canceled in 1993. However, one of the SFX-100 PlayStation prototypes created during Nintendo's and Sony's partnership surfaced in 2015 and was restored, and it can even run homebrew games developed for the console that never was.</p>
-<h3>The Plan</h3>
-<div class="gallery" data-shape="landscape"><img src="blog/261019_img0001.jpg" srcset="blog/261019_img0001_sd.webp 466w, blog/261019_img0001.jpg 1021w" sizes="(max-width: 700px) 80vw, 520px" width="1021" height="1052" data-sd="blog/261019_img0001_sd.webp" data-original="blog/261019_img0001_original.png" data-original-size="1021x1052" data-original-bytes="39877" loading="lazy" alt="Blog image 0001" /></div>
-<p>I've spent years tinkering with modifying games for retro hardware, primarily the NES, SNES and Game Boy. One of my dream projects has been to develop and release an original game for one of these systems. But the SNES CD in particular has always appealed to me. Partly for its practically limitless (by SNES standards) 700MB capacity for games, partly for the challenge, and partly for the joy of turning fantasy into reality. The SNES CD largely exists as an unobtainable prototype with very little in the way of development. There's just <a href="https://problemkaputt.de/sns.htm" rel="noopener">Martin Korth's no$sns emulator</a> which emulates the SFX-100 and a couple of homebrew games released a decade ago. I want to change that.</p>
-<p>I've got many games I want to create, and so developing an environment for NES and SNES to ease and accelerate their development has been a long ongoing project. It's finally coming together in a form built around intuitive memory management and advanced features, with an easy to use UI similar to GameMaker or NESmaker. Once it's functional enough, I plan to make it publicly available so anyone else wanting to develop games for the SNES CD can do so without doing everything from scratch.</p>
-<p>One obstacle, though, is the BIOS. It's Sony's property, so it can’t legally be shared, which makes the SNES CD hard to open up to developers. One solution I've been developing is a clean room BIOS recreating the functionality of the prototype BIOS but not referencing any of Sony's code. So far, it is able to take the place of the original SFX-100 BIOS and interface with the emulated CD-ROM drive in no$sns. This way, there would be a free publicly available BIOS that projects such as <a href="https://x.com/cosam_the_great/" rel="noopener">conan_the_great's</a> physical SFX-100 recreation could use. I'm planning to add extra optional features beyond that of the original BIOS, namely drivers for MSU-1 that would enable playing SNES CD games on SD2SNES & FXPak Pro flash cartridges, a runtime library taking advantage of unused cartridge space, and implementing the SFX-100's planned SuperFX enhancement chip support that isn't present in the prototype. Developers could choose to take advantage of these features or ignore them to retain full prototype compatibility, or even design games to be able to support both.</p>
-<p>With my IDE and BIOS coming along, I've also started work on my first game for the SNES CD.</p>
-<h3>What's done</h3>
-<div class="gallery" data-shape="landscape"><img src="blog/261019_img0002.jpg" srcset="blog/261019_img0002_sd.webp 465w, blog/261019_img0002.jpg 1026w" sizes="(max-width: 700px) 80vw, 520px" width="1026" height="1059" data-sd="blog/261019_img0002_sd.webp" data-original="blog/261019_img0002_original.png" data-original-size="1026x1059" data-original-bytes="86602" loading="lazy" alt="Blog image 0002" /></div>
-<ul>
-<li>Enough of the IDE to be useful for my game's development.</li>
-<li>BIOS passing initial SFX-100 start-up tests with no$sns.</li>
-<li>A raycasting engine for a stock SNES with a couple test levels & full game design document.</li>
-</ul>
-<p>There's a lot of work still ahead, but the project has been mapped out and now it's just a matter of building it brick by brick.</p>
-<h3>What comes next</h3>
-<p>Custom builds of Mesen and SD2SNES/FXPak Pro supporting the BIOS cartridge mapper via MSU-1 are the current priority so I can test on those. They are near completion and will be ready soon. Following that, I will continue development of the IDE, BIOS and my first game for the SNES CD. If any of this interests you, I would love to hear from you. My contact details are at the bottom of this page.</p>
-            </div>
-            <div class="bs-post__tags"><a href="blog.html?t=SNESCD">#SNESCD</a> <a href="blog.html?t=NintendoPlaystation">#NintendoPlaystation</a> <a href="blog.html?t=ImagineBIOS">#ImagineBIOS</a></div>
-          </article>
-          <p class="bm-older bm-older--end">This is the first month.</p>
+          <a class="bm-older" href="blog/2610.html" rel="prev"><svg class="bm-older__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></svg>Older posts: October 2026</a>
         </div>
         <!--[/edit:blog-stream]-->
       </div>
@@ -479,10 +325,11 @@
        data-ced="blog" keeps the editor from treating it as copy. -->
   <!--[edit:blog-manifest]-->
   <script id="blogManifest" type="text/plain" data-ced="blog">
-next-post:0011
-stamp:ynf87b
+next-post:0012
+stamp:61tkhs
 month:2610=aukewy
-2610190002Day 1: Homebrew on the SNES CD|2610220003Day 2: Tall Walls|2610230004Day 3: Making a CD spin|2610240005Day 4: The Mode 7 Framebuffer|2610250006Day 5: Generating a CD image|2610270007Day 6: HDMA for the BIOS|2610280008Day 7: Of Mice and Menu Buttons|2610290009Day 8: SuperDisc Self Check|2610300010Day 9: Now we're playing with power. SUPER POWER
+month:2611=82tbwg
+2610190002Day 1: Homebrew on the SNES CD|2610220003Day 2: Tall Walls|2610230004Day 3: Making a CD spin|2610240005Day 4: The Mode 7 Framebuffer|2610250006Day 5: Generating a CD image|2610270007Day 6: HDMA for the BIOS|2610280008Day 7: Of Mice and Menu Buttons|2610290009Day 8: SuperDisc Self Check|2610300010Day 9: Now we're playing with power. SUPER POWER|2611010011Day 11: Reinventing the Font
 </script>
   <!--[/edit:blog-manifest]-->
 
