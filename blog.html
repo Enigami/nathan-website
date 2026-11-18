@@ -196,6 +196,31 @@
         </div>
         <!--[edit:blog-stream]-->
         <div class="bs-stream" id="blogStream" data-ced="generated">
+          <article class="bs-post" id="s0022" data-id="0022" data-date="261117" data-time="1939" data-zone="EST" data-tags="SNESCD NintendoPlaystation SD2SNES Development">
+            <header class="bs-post__by">
+              <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
+              <b>NATHANIEL HARRIS</b>
+              <a class="bs-post__when" href="blog/2611.html?post=p0022#p0022"><time datetime="2026-11-17T19:39">November 17, 2026 · 7:39 pm</time><span class="bs-post__zone">EST</span></a>
+            </header>
+            <h3 class="bs-post__title"><a href="blog/2611.html?post=p0022#p0022">Day 27: Dithering</a></h3>
+            <div class="bs-post__body">
+<div class="gallery"><img src="blog/261117_img0029.jpg" width="512" height="448" data-sd="blog/261117_img0029_sd.webp" data-original="blog/261117_img0029_original.png" data-original-size="512x448" data-original-bytes="8769" loading="lazy" alt="Blog image 0029" /></div>
+<p>When I opted to make the Bad Apple playable on SNES CD, I had misremembered the video as being just blacks and whites. However, it includes a fair bit of grays so I needed to convert those. My driver works with 1 bit per pixel video, so pixels could only be either white or black. I either needed to clamp to white or black or dither the pixels. Clamping lead to some elements not showing up at all, while dithering made the characters fuzzy. I settled on dithering based on brightness when there weren't enough fully white pixels nearby, otherwise it clamps to black or white. It took a lot of fine tuning but I think the end result ended up great.</p>
+            </div>
+            <div class="bs-post__tags"><a href="blog.html?t=SNESCD">#SNESCD</a> <a href="blog.html?t=NintendoPlaystation">#NintendoPlaystation</a> <a href="blog.html?t=SD2SNES">#SD2SNES</a> <a href="blog.html?t=Development">#Development</a></div>
+          </article>
+          <article class="bs-post" id="s0021" data-id="0021" data-date="261117" data-time="1934" data-zone="EST" data-tags="Day 27: Video Dithering">
+            <header class="bs-post__by">
+              <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
+              <b>NATHANIEL HARRIS</b>
+              <a class="bs-post__when" href="blog/2611.html?post=p0021#p0021"><time datetime="2026-11-17T19:34">November 17, 2026 · 7:34 pm</time><span class="bs-post__zone">EST</span></a>
+            </header>
+            <div class="bs-post__body">
+<div class="gallery"><figure class="bp-media" data-kind="video"><video controls preload="none" playsinline width="1920" height="1080" aria-label="Blog video 0028"><source src="blog/261117_media0028.mp4" type="video/mp4" /></video><a class="bp-media__file" href="blog/261117_media0028.mp4" download="Bad Apple SD2SNES - Dithering.mp4" type="video/mp4">Download Bad Apple SD2SNES - Dithering.mp4 (18 MB)</a></figure></div>
+<p>When I opted to make the Bad Apple playable on SNES CD, I had misremembered the video as being just blacks and whites. However, it includes a fair bit of grays so I needed to convert those. My driver works with 1 bit per pixel video, so pixels could only be either white or black. I either needed to clamp to white or black or dither the pixels. Clamping lead to some elements not showing up at all, while dithering made the characters fuzzy. I settled on dithering based on brightness when there weren't enough fully white pixels nearby, otherwise it clamps to black or white. It took a lot of fine tuning but I think the end result ended up great.</p>
+            </div>
+            <div class="bs-post__tags"><a href="blog.html?t=Day">#Day</a> <a href="blog.html?t=27%3A">#27:</a> <a href="blog.html?t=Video">#Video</a> <a href="blog.html?t=Dithering">#Dithering</a></div>
+          </article>
           <article class="bs-post" id="s0020" data-id="0020" data-date="261116" data-time="1430" data-zone="EST" data-tags="SNESCD NintendoPlaystation SD2SNES Development">
             <header class="bs-post__by">
               <img class="bs-post__avatar" src="img/nathaniel-portrait.jpg" alt="" />
@@ -452,11 +477,11 @@
        data-ced="blog" keeps the editor from treating it as copy. -->
   <!--[edit:blog-manifest]-->
   <script id="blogManifest" type="text/plain" data-ced="blog">
-next-post:0021
-stamp:1vi0cr
+next-post:0023
+stamp:0yhfk0
 month:2610=aukewy
-month:2611=mf8pu0
-2610190002Day 1: Homebrew on the SNES CD|2610220003Day 2: Tall Walls|2610230004Day 3: Making a CD spin|2610240005Day 4: The Mode 7 Framebuffer|2610250006Day 5: Generating a CD image|2610270007Day 6: HDMA for the BIOS|2610280008Day 7: Of Mice and Menu Buttons|2610290009Day 8: SuperDisc Self Check|2610300010Day 9: Now we're playing with power. SUPER POWER|2611010011Day 11: Reinventing the Font|2611020012Day 12: Big Font|2611070013Day 17: Super Assembler, the all-in-one SNES assembler!|2611100014Day 20: First major milestone reached!|2611110015Day 21: Accidental Fog|2611110016Day 22: Changing 'palette' with Texels|2611130017Day 23: My raycast engine on SNES!|2611140018Day 24: Populating the world|2611150019Day 25: Rule 86|2611160020Day 26: MSU-1 to CD-ROM
+month:2611=3zqkr3
+2610190002Day 1: Homebrew on the SNES CD|2610220003Day 2: Tall Walls|2610230004Day 3: Making a CD spin|2610240005Day 4: The Mode 7 Framebuffer|2610250006Day 5: Generating a CD image|2610270007Day 6: HDMA for the BIOS|2610280008Day 7: Of Mice and Menu Buttons|2610290009Day 8: SuperDisc Self Check|2610300010Day 9: Now we're playing with power. SUPER POWER|2611010011Day 11: Reinventing the Font|2611020012Day 12: Big Font|2611070013Day 17: Super Assembler, the all-in-one SNES assembler!|2611100014Day 20: First major milestone reached!|2611110015Day 21: Accidental Fog|2611110016Day 22: Changing 'palette' with Texels|2611130017Day 23: My raycast engine on SNES!|2611140018Day 24: Populating the world|2611150019Day 25: Rule 86|2611160020Day 26: MSU-1 to CD-ROM|2611170021When I opted to make the...|2611170022Day 27: Dithering
 </script>
   <!--[/edit:blog-manifest]-->
 
