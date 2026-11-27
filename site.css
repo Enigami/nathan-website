@@ -1,8 +1,8 @@
 /* ============================================================
    site.css - this website's style: the theme tokens, the page's
    backdrop, the header and nav, the hero and its portrait, the
-   project cards, the about and contact blocks of the footer, the
-   About page, and their breakpoints.
+   project cards, the Downloads page's cards, the about and contact
+   blocks of the footer, the About page, and their breakpoints.
 
    The engine's style is in libraries/harrisxrwebengine/engine.css.
    Every page links that file first and this one second, so a rule
@@ -17,7 +17,7 @@
    Sections:
      1. FOUNDATION AND CHROME       4. ABOUT AND CONTACT
      2. HERO                        5. SHARED EFFECTS
-     3. FEATURES                    6. RESPONSIVE
+     3. WORK                        6. RESPONSIVE
    ============================================================ */
 
 /* ============================================================
@@ -369,10 +369,11 @@ body.nav-open { overflow: hidden; }
 /* ============================================================
    3. WORK
    ------------------------------------------------------------
-   Section headings, the What I do band, the project cards, and
-   the gallery page's intro. A project card is the editor's
-   project block, so the editor's project form edits it. The
-   carousel in a card is the engine's, in engine.css.
+   Section headings, the What I do band, the project cards, the
+   gallery page's intro, and the Downloads page's cards. A
+   project card is the editor's project block, so the editor's
+   project form edits it. The carousel in a card is the
+   engine's, in engine.css.
    ============================================================ */
 
 /* ------------------------------------------------------------
@@ -530,6 +531,37 @@ body.nav-open { overflow: hidden; }
 .gal-intro { padding: var(--section-pad) 0 clamp(1.6rem, 3vw, 2.6rem); }
 .gal-note { margin-top: 1rem; color: var(--muted); font-size: .88rem; }
 
+/* ------------------------------------------------------------
+   THE DOWNLOADS PAGE
+   ------------------------------------------------------------
+   The heading, then one card for each download: the copy and its
+   specs on the left, and the button that fetches the file on the
+   right. A narrow screen stacks the button under the copy, in
+   section 6. The cards start close under the heading, like the
+   gallery's trains, because the heading introduces them. */
+.downloads .section-head { margin-bottom: clamp(1.6rem, 3vw, 2.6rem); }
+.downloads__list { display: grid; gap: clamp(1rem, 2.4vw, 1.6rem); }
+.download {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: clamp(1.4rem, 3vw, 2.6rem); align-items: center;
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--panel);
+}
+.download__title {
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-weight: 800; letter-spacing: -.02em; line-height: 1.15;
+}
+.download__meta { font-size: .85rem; color: var(--muted); margin-top: .4rem; letter-spacing: .04em; }
+.download__desc { margin-top: 1rem; max-width: 62ch; color: var(--text-soft); }
+.download .specs { margin-top: 1.2rem; }
+/* The card is the button's own panel color, so the button takes the
+   accent, like the contact buttons, or it reads as part of the card. */
+.download__btn {
+  white-space: nowrap;
+  color: var(--accent); border-color: var(--accent-faint); background: var(--panel-2);
+}
+
 /* ============================================================
    4. ABOUT AND CONTACT
    ============================================================ */
@@ -576,7 +608,9 @@ body.nav-open { overflow: hidden; }
    about.html is a heading over the site footer, and the footer's
    About is the page's content. The heading names the page, so the
    About shows no eyebrow of its own there. It starts close under
-   the heading, because the heading opens the same subject. */
+   the heading, because the heading opens the same subject.
+   The Downloads page opens with .page-intro too, because it also
+   has no hero. */
 .page-intro { padding-top: var(--section-pad); }
 .about-page .site-footer .about { padding-top: 0; }
 .about-page .site-footer .about .section-head { display: none; }
@@ -653,10 +687,11 @@ body.nav-open { overflow: hidden; }
    ------------------------------------------------------------ */
 /* The nav becomes a drawer here, and not at the phone breakpoint below.
    The line is where the header runs out of room, which is a measured number:
-   the brand lockup and five nav links stop fitting side by side at 1040. Move
-   it when the nav gains or loses an item, and measure again rather than
-   guessing - the two numbers are unrelated, which is why they are two rules. */
-@media (max-width: 1039px) {
+   the brand lockup and six nav links stop fitting side by side at 1165, where
+   about 40px stays between them. Move it when the nav gains or loses an item,
+   and measure again rather than guessing - the two numbers are unrelated,
+   which is why they are two rules. */
+@media (max-width: 1164px) {
   /* Header bar stays pinned ON TOP; the drawer slides in BELOW it so the
      brand lockup is always visible. Header sits above the panel. */
   .site-header { z-index: 960; }
@@ -748,6 +783,9 @@ body.nav-open { overflow: hidden; }
   }
 
   .focus__grid { grid-template-columns: 1fr; }
+
+  .download { grid-template-columns: 1fr; align-items: start; }
+  .download__btn { justify-self: start; }
 
   .project, .project:nth-of-type(even) { grid-template-columns: 1fr; gap: 1.8rem; }
   .project:nth-of-type(even) .project__media { order: 0; }
